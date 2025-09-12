@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private bool isGrounded;
 
+    //Coin Manager
+    public CoinManager cm;
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -84,5 +86,14 @@ public class PlayerController : MonoBehaviour
     {
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         Debug.Log("Jump!");
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Coin"))
+        {
+            Destroy(other.gameObject);
+            cm.coinCounter++;
+        }
     }
 }
