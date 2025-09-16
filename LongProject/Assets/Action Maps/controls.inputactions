@@ -34,6 +34,7 @@
                 },
                 {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                     "name": "Interact",
                     "type": "Button",
                     "id": "cce5c1f5-1920-467b-aa51-fb72490594c3",
@@ -42,6 +43,8 @@
                     "interactions": "",
                     "initialStateCheck": false
 =======
+=======
+>>>>>>> Stashed changes
                     "name": "LookAround",
                     "type": "Value",
                     "id": "e00dadfa-008e-4591-af82-37efd54f1d28",
@@ -58,6 +61,9 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
                 }
             ],
@@ -108,6 +114,7 @@
                 },
                 {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                     "name": "Keyboard",
                     "id": "11c1667f-41a9-43d6-9674-fb7d7205f541",
                     "path": "2DVector",
@@ -116,6 +123,8 @@
                     "groups": "",
                     "action": "Move",
 =======
+=======
+>>>>>>> Stashed changes
                     "name": "1D Axis",
                     "id": "55ba401f-909d-4643-8fa4-64a143881eaf",
                     "path": "1DAxis",
@@ -123,11 +132,15 @@
                     "processors": "",
                     "groups": "",
                     "action": "LookAround",
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
                     "name": "up",
                     "id": "39a46acc-3e57-45b5-9e35-029d34f911b1",
@@ -137,6 +150,8 @@
                     "groups": "",
                     "action": "Move",
 =======
+=======
+>>>>>>> Stashed changes
                     "name": "negative",
                     "id": "c4ee60fe-d925-42a8-9c83-d007fb6d855d",
                     "path": "<Gamepad>/rightStick/left",
@@ -144,11 +159,15 @@
                     "processors": "",
                     "groups": "",
                     "action": "LookAround",
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
                     "name": "down",
                     "id": "2f173b8b-9bfa-4fe7-ab04-4468d423b3ae",
@@ -180,6 +199,8 @@
                     "groups": "",
                     "action": "Move",
 =======
+=======
+>>>>>>> Stashed changes
                     "name": "positive",
                     "id": "d9a65502-b0bc-4916-a484-b9726ba5a2ab",
                     "path": "<Gamepad>/rightStick/right",
@@ -187,12 +208,16 @@
                     "processors": "",
                     "groups": "",
                     "action": "LookAround",
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "",
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
                     "id": "f7af370d-4130-4d04-b71d-2f94f0ad51cf",
                     "path": "<Gamepad>/buttonWest",
@@ -212,12 +237,17 @@
                     "groups": "",
                     "action": "Interact",
 =======
+=======
+>>>>>>> Stashed changes
                     "id": "361c2bd5-71ae-4ba6-8dcc-14f34e2da326",
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "CamRotate",
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
                     "isComposite": false,
                     "isPartOfComposite": false

@@ -23,9 +23,12 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded;
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     //Coin Manager
     public CoinManager cm;
 =======
+=======
+>>>>>>> Stashed changes
     [SerializeField]
     private bool isBigPlayer, isSmallPlayer;
     private GameObject HeldObject;
@@ -39,6 +42,9 @@ public class PlayerController : MonoBehaviour
     private bool isPushing;
     
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     void Awake()
     {
@@ -202,6 +208,7 @@ public class PlayerController : MonoBehaviour
 
         }
 
+<<<<<<< Updated upstream
     }
 
     private void OnTriggerEnter(Collider other)
@@ -211,5 +218,7 @@ public class PlayerController : MonoBehaviour
             Destroy(other.gameObject);
             cm.coinCounter++;
         }
+=======
+>>>>>>> Stashed changes
     }
 }
