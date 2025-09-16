@@ -3,107 +3,49 @@
     "maps": [
         {
             "name": "Player",
-            "id": "676fa979-a165-44c6-ac25-7dbcfe5c43ce",
+            "id": "b398b5d8-9df6-4017-a56b-ffc9aad97b17",
             "actions": [
                 {
-                    "name": "Jump",
-                    "type": "Button",
-                    "id": "9601ec2a-3ba5-4005-85ce-a84e2989cf08",
-                    "expectedControlType": "Button",
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "c3214ed3-6cc9-430f-966f-4565b4e87dcb",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Ability",
                     "type": "Button",
-                    "id": "ee5dcffc-f473-4234-9fb8-730c71f31c1e",
+                    "id": "fe371a53-13ef-484c-9953-640868da7db5",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Move",
-                    "type": "Value",
-                    "id": "088f543a-d490-495a-9023-906d6d5e8a1c",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-                    "name": "Interact",
-                    "type": "Button",
-                    "id": "cce5c1f5-1920-467b-aa51-fb72490594c3",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-=======
-=======
->>>>>>> Stashed changes
                     "name": "LookAround",
-                    "type": "Value",
-                    "id": "e00dadfa-008e-4591-af82-37efd54f1d28",
-                    "expectedControlType": "Axis",
+                    "type": "Button",
+                    "id": "e4e6abb0-c764-46a7-9f90-7ebc8be99f0a",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 },
                 {
-                    "name": "CamRotate",
-                    "type": "Value",
-                    "id": "041b7ba4-d7c0-4eee-b7ee-1a9158dfebf5",
-                    "expectedControlType": "Vector2",
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "52b2bdef-e86b-49e8-a381-96ce3aaede05",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
                     "name": "",
-                    "id": "5ba206ef-2045-4f06-a233-a0f6c95997cb",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "af3073ab-9286-4cf2-8a66-73b6d137a3a9",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "2b42c8ba-5789-40b0-8f43-a3a90a939d33",
-                    "path": "<Gamepad>/rightTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Ability",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "dcad3ddb-9017-461d-b117-07f8ee46c44e",
+                    "id": "d563694e-a079-445a-9524-7b7bb3e049ab",
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
@@ -113,142 +55,57 @@
                     "isPartOfComposite": false
                 },
                 {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-                    "name": "Keyboard",
-                    "id": "11c1667f-41a9-43d6-9674-fb7d7205f541",
-                    "path": "2DVector",
+                    "name": "",
+                    "id": "0a67cf79-b3ac-4fbe-b33e-3dc508c660a0",
+                    "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
-=======
-=======
->>>>>>> Stashed changes
+                    "action": "Ability",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "1D Axis",
-                    "id": "55ba401f-909d-4643-8fa4-64a143881eaf",
+                    "id": "817d3c2b-4f0f-4963-91f6-a6a16eb2c0c2",
                     "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "LookAround",
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-                    "name": "up",
-                    "id": "39a46acc-3e57-45b5-9e35-029d34f911b1",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-=======
-=======
->>>>>>> Stashed changes
                     "name": "negative",
-                    "id": "c4ee60fe-d925-42a8-9c83-d007fb6d855d",
+                    "id": "2c4a3715-1bba-4ff0-917e-d83eb862780f",
                     "path": "<Gamepad>/rightStick/left",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "LookAround",
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-                    "name": "down",
-                    "id": "2f173b8b-9bfa-4fe7-ab04-4468d423b3ae",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "768f9a61-9de6-4fa2-ba30-9c0aac04a0ee",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "aa5a0cc1-ad59-4795-b6f0-de90bfef921e",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-=======
-=======
->>>>>>> Stashed changes
                     "name": "positive",
-                    "id": "d9a65502-b0bc-4916-a484-b9726ba5a2ab",
+                    "id": "5fc9d022-a9b4-495a-bbdf-d1a1c84c72cc",
                     "path": "<Gamepad>/rightStick/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "LookAround",
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "",
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-                    "id": "f7af370d-4130-4d04-b71d-2f94f0ad51cf",
-                    "path": "<Gamepad>/buttonWest",
-                    "interactions": "Press",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "6f626e74-9747-4fbe-800a-ecadc564f42a",
-                    "path": "<Keyboard>/e",
-                    "interactions": "Press",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Interact",
-=======
-=======
->>>>>>> Stashed changes
-                    "id": "361c2bd5-71ae-4ba6-8dcc-14f34e2da326",
-                    "path": "<Gamepad>/rightStick",
+                    "id": "603cc0a4-4182-4703-b75c-1d6453c4fd08",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "CamRotate",
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
