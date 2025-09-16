@@ -162,8 +162,8 @@ MonoBehaviour:
     m_Bits: 64
   isGrounded: 0
   cm: {fileID: 0}
-  isBigPlayer: 0
-  isSmallPlayer: 1
+  isBigPlayer: 1
+  isSmallPlayer: 0
   rotateSpeed: 100
   turnInput: 0
   MaxSpeed: 10
