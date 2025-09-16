@@ -879,7 +879,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 1960924648}
+  m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -932,7 +932,7 @@ MonoBehaviour:
   interactRange: 3
   interactiveLayer:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 64
   rayLength: 10
   rayColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1001 &1570108494
@@ -1014,6 +1014,10 @@ PrefabInstance:
     - target: {fileID: 1973849123342724890, guid: e51082081f0a1a549b70f173a617a500, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1973849123342724890, guid: e51082081f0a1a549b70f173a617a500, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2551321599226946783, guid: e51082081f0a1a549b70f173a617a500, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1176,6 +1180,18 @@ PrefabInstance:
       value: 0.02000617
       objectReference: {fileID: 0}
     - target: {fileID: 5896693734057993969, guid: e51082081f0a1a549b70f173a617a500, type: 3}
+      propertyPath: m_Lens.FieldOfView
+      value: 69.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 6065738988583981042, guid: e51082081f0a1a549b70f173a617a500, type: 3}
+      propertyPath: m_Lens.FieldOfView
+      value: 69.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 6458882021559428541, guid: e51082081f0a1a549b70f173a617a500, type: 3}
+      propertyPath: m_Lens.FieldOfView
+      value: 69.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 6505663608813614024, guid: e51082081f0a1a549b70f173a617a500, type: 3}
       propertyPath: m_Lens.FieldOfView
       value: 69.08
       objectReference: {fileID: 0}
@@ -1729,11 +1745,6 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
---- !u!20 &1960924648 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 3626107579341553048, guid: e51082081f0a1a549b70f173a617a500, type: 3}
-  m_PrefabInstance: {fileID: 1570108494}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2023741959
 GameObject:
   m_ObjectHideFlags: 0
