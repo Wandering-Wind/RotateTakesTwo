@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     private PlayerInput playerInput;
     [SerializeField]
     private bool isGrounded;
-
+    private int distance = 2;
 
     public CoinManager cm;
 
@@ -199,7 +199,7 @@ public class PlayerController : MonoBehaviour
         // Visual debug
         if (isGrounded)
         {
-            Debug.DrawRay(transform.position, Vector3.down * hit.distance, Color.green);
+            Debug.DrawRay(transform.position, Vector3.down * distance, Color.green);
         }
         else
         {
