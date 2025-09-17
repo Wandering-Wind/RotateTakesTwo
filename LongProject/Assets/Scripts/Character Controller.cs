@@ -57,12 +57,13 @@ public class PlayerController : MonoBehaviour
         if (playerInput.playerIndex == 0)
         {
             SpriteRenderer spriteRend = GetComponent<SpriteRenderer>();
-            //gameObject.tag = "Player1";
+            isSmallPlayer = true;
         }
         else if (playerInput.playerIndex == 1)
         {
             SpriteRenderer spriteRend = GetComponent<SpriteRenderer>();
-            //gameObject.tag = "Player2";
+            isBigPlayer = true;
+
         }
     }
 

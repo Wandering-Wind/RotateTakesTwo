@@ -156,13 +156,13 @@ MonoBehaviour:
   raycastDistance: 1
   groundLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 64
   InteractLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 8
   isGrounded: 0
   cm: {fileID: 0}
-  isBigPlayer: 1
+  isBigPlayer: 0
   isSmallPlayer: 0
   rotateSpeed: 100
   turnInput: 0

@@ -4,24 +4,15 @@
 TagManager:
   serializedVersion: 2
   tags:
-<<<<<<< Updated upstream
-  - Coin
-  - Interactable
-=======
   - HeavyBlock
->>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - ground
+  - InterAct
   - Water
   - UI
-<<<<<<< Updated upstream
-  - Interact
-=======
-  - interact
->>>>>>> Stashed changes
+  - Ground
   - 
   - 
   - 
