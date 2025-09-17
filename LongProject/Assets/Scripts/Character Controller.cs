@@ -36,7 +36,8 @@ public class PlayerController : MonoBehaviour
     private int MaxSpeed,normalSpeed, sprintSpeed;
 
     private bool isPushing;
-    
+    [SerializeField]
+    private Mesh[] Meshes;
 
     void Awake()
     {
@@ -58,12 +59,15 @@ public class PlayerController : MonoBehaviour
         {
             SpriteRenderer spriteRend = GetComponent<SpriteRenderer>();
             isSmallPlayer = true;
+            MeshFilter PlayerMesh = GetComponent<MeshFilter>();
+            PlayerMesh.mesh = Meshes[0];
         }
         else if (playerInput.playerIndex == 1)
         {
             SpriteRenderer spriteRend = GetComponent<SpriteRenderer>();
             isBigPlayer = true;
-
+            MeshFilter PlayerMesh = GetComponent<MeshFilter>();
+            PlayerMesh.mesh = Meshes[1];
         }
     }
 
