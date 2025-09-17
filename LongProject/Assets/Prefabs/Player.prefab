@@ -260,6 +260,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 52b2bdef-e86b-49e8-a381-96ce3aaede05
     m_ActionName: Player/Jump[/DualShock4GamepadHID/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2936017932482911335}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d9137ecc-410a-47f6-88fe-470d412ad749
+    m_ActionName: Player/Interact[/DualShock4GamepadHID/rightShoulder,/DualShock4GamepadHID1/rightShoulder]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

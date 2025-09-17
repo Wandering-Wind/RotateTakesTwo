@@ -171,6 +171,20 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        Ray ray = new Ray(transform.position, transform.forward);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray,out hit, 3, InteractLayer))
+        {
+            if (hit.collider.CompareTag("Door"))
+            {
+                Destroy(hit.collider.gameObject);
+                //Door Open Script Here
+            }
+        }
+    }
     public void OnRotate(InputAction.CallbackContext context)
     {
         turnInput = context.ReadValue<float>();
