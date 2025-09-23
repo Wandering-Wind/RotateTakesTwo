@@ -36,6 +36,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4863820474911899673}
+  - {fileID: 7460417318398243032}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7290127952692291677
@@ -171,6 +172,9 @@ MonoBehaviour:
   Meshes:
   - {fileID: 4493585093827132993, guid: 4841fa157a34dab43a40fbbd53f0ed9d, type: 3}
   - {fileID: -5495902117074765545, guid: 84eadd599e069b64caf6c5f840fa8403, type: 3}
+  rotateManager: {fileID: 0}
+  RotateManagerScript: {fileID: 0}
+  RotateParent: {fileID: 7460417318398243032}
 --- !u!114 &-1408217536212657258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,11 +280,74 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: d9137ecc-410a-47f6-88fe-470d412ad749
     m_ActionName: Player/Interact[/DualShock4GamepadHID/rightShoulder,/DualShock4GamepadHID1/rightShoulder]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2936017932482911335}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnRotateLeft
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 8de22ee6-4837-43b4-b4b5-52b0bd94a1c1
+    m_ActionName: Player/Rotate Right[/DualShock4GamepadHID/dpad/right]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2936017932482911335}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnRotateRight
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c0355a99-f3f5-4124-a17a-b8ded9edc5c9
+    m_ActionName: Player/Rotate Left[/DualShock4GamepadHID/dpad/left]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 6740777218249604672}
+--- !u!1 &5993136672998737290
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7460417318398243032}
+  m_Layer: 0
+  m_Name: Rotate Spot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7460417318398243032
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5993136672998737290}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8590347653476006443}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8317165913839682193
 GameObject:
   m_ObjectHideFlags: 0

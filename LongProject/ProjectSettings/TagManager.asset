@@ -6,6 +6,7 @@ TagManager:
   tags:
   - HeavyBlock
   - Door
+  - RotateManager
   layers:
   - Default
   - TransparentFX

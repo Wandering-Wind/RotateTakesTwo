@@ -33,12 +33,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float turnInput;
     [SerializeField]
-    private int MaxSpeed,normalSpeed, sprintSpeed;
+    private int MaxSpeed, normalSpeed, sprintSpeed;
 
     private bool isPushing;
     [SerializeField]
     private Mesh[] Meshes;
-
+    [SerializeField]
+    private GameObject rotateManager;
+    [SerializeField]
+    private RotateManager RotateManagerScript;
+    [SerializeField]
+    private Transform RotateParent;    
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -55,12 +60,18 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        rotateManager = GameObject.FindGameObjectWithTag("RotateManager");
+        RotateManagerScript = rotateManager.GetComponent<RotateManager>();
+
         if (playerInput.playerIndex == 0)
         {
             SpriteRenderer spriteRend = GetComponent<SpriteRenderer>();
             isSmallPlayer = true;
             MeshFilter PlayerMesh = GetComponent<MeshFilter>();
             PlayerMesh.mesh = Meshes[0];
+            RotateManagerScript.Players.Add(transform);
+            RotateManagerScript.Rotations.Add(RotateParent);
+
         }
         else if (playerInput.playerIndex == 1)
         {
@@ -68,7 +79,12 @@ public class PlayerController : MonoBehaviour
             isBigPlayer = true;
             MeshFilter PlayerMesh = GetComponent<MeshFilter>();
             PlayerMesh.mesh = Meshes[1];
+            RotateManagerScript.Players.Add(transform);
+            RotateManagerScript.Rotations.Add(RotateParent);
+
         }
+
+
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -76,6 +92,38 @@ public class PlayerController : MonoBehaviour
         moveInput = context.ReadValue<Vector2>(); // Changed to Vector2
     }
 
+
+    public void OnRotateLeft(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            RotateManagerScript.RotateLeft[playerInput.playerIndex] = true;
+        }
+        else if (context.canceled)
+        {
+            if (!RotateManagerScript.isRotating)
+            {
+                RotateManagerScript.RotateLeft[playerInput.playerIndex] = false;
+            }
+
+        }
+    }
+
+    public void OnRotateRight(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            RotateManagerScript.RotateRight[playerInput.playerIndex] = true;
+        }
+        else if (context.canceled)
+        {
+            if (!RotateManagerScript.isRotating)
+            {
+                RotateManagerScript.RotateRight[playerInput.playerIndex] = false;
+            }
+
+        }
+    }
     public void OnAbility(InputAction.CallbackContext context)
     {
         if (isBigPlayer)
@@ -142,6 +190,41 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         CheckGrounded();
+
+        float currentAngle = transform.eulerAngles.z;
+
+        if (!RotateManagerScript.isRotating)
+        {
+            rb.useGravity = true;
+
+            if (currentAngle == 0)
+            {
+                //down
+                Physics.gravity = new Vector3(0, -9.81f, 0);
+            }
+            else if (currentAngle == -180)
+            {
+                //Up
+                Physics.gravity = new Vector3(0, 9.81f, 0);
+
+            }
+            else if (currentAngle == -90)
+            {
+                //Left
+                Physics.gravity = new Vector3(-9.81f,0, 0);
+
+            }
+            else if (currentAngle == 90)
+            {
+                //right
+                Physics.gravity = new Vector3(9.81f, 0, 0);
+
+            }
+        }
+        else if (RotateManagerScript.isRotating)
+        {
+            rb.useGravity = false;
+        }
     }
 
    
@@ -194,7 +277,7 @@ public class PlayerController : MonoBehaviour
     {
         // Use 3D raycast since we're using Rigidbody (3D)
         RaycastHit hit;
-        isGrounded = Physics.Raycast(transform.position, Vector3.down, out hit, raycastDistance, groundLayer);
+        isGrounded = Physics.Raycast(transform.position, -transform.up, out hit, raycastDistance, groundLayer);
 
         // Visual debug
         if (isGrounded)
@@ -211,11 +294,11 @@ public class PlayerController : MonoBehaviour
     {
        if (isBigPlayer)
         {
-            rb.AddForce(Vector3.up * JumpForceForBigPlayer, ForceMode.Impulse);
+            rb.AddForce(transform.up * JumpForceForBigPlayer, ForceMode.Impulse);
         }
        else if (isSmallPlayer)
         {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
 
         }
 
