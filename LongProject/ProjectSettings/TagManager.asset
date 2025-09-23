@@ -7,6 +7,9 @@ TagManager:
   - HeavyBlock
   - Door
   - RotateManager
+  - Player1
+  - Player2
+  - SwapManager
   layers:
   - Default
   - TransparentFX

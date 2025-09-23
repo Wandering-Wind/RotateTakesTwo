@@ -43,7 +43,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private RotateManager RotateManagerScript;
     [SerializeField]
-    private Transform RotateParent;    
+    private Transform RotateParent;
+    [SerializeField]
+    private SwapManager SwapManagerScript;
+    private GameObject SwapManagerGO;
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -61,7 +64,9 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         rotateManager = GameObject.FindGameObjectWithTag("RotateManager");
+        SwapManagerGO = GameObject.FindGameObjectWithTag("SwapManager");
         RotateManagerScript = rotateManager.GetComponent<RotateManager>();
+        SwapManagerScript = SwapManagerGO.GetComponent<SwapManager>();
 
         if (playerInput.playerIndex == 0)
         {
@@ -71,6 +76,8 @@ public class PlayerController : MonoBehaviour
             PlayerMesh.mesh = Meshes[0];
             RotateManagerScript.Players.Add(transform);
             RotateManagerScript.Rotations.Add(RotateParent);
+            transform.tag = "Player1";
+            SwapManagerScript.Players.Add(transform);
 
         }
         else if (playerInput.playerIndex == 1)
@@ -81,6 +88,8 @@ public class PlayerController : MonoBehaviour
             PlayerMesh.mesh = Meshes[1];
             RotateManagerScript.Players.Add(transform);
             RotateManagerScript.Rotations.Add(RotateParent);
+            transform.tag = "Player2";
+            SwapManagerScript.Players.Add(transform);
 
         }
 
@@ -266,6 +275,18 @@ public class PlayerController : MonoBehaviour
                 Destroy(hit.collider.gameObject);
                 //Door Open Script Here
             }
+        }
+    }
+
+    public void OnSwap(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+           SwapManagerScript.CanSwap[playerInput.playerIndex] = true;
+        }
+        else if (context.canceled)
+        {
+            SwapManagerScript.CanSwap[playerInput.playerIndex] = false;
         }
     }
     public void OnRotate(InputAction.CallbackContext context)

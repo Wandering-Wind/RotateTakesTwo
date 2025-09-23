@@ -63,7 +63,7 @@ public class RotateManager : MonoBehaviour
         {
             foreach (Transform t in Levels)
             {
-                if (Rotations[0] != null && Rotations[1] != null)
+                if (Rotations.Count ==2 )
                 {
                     // Get the current Euler angle
                     float currentAngle = t.eulerAngles.z;

@@ -175,6 +175,7 @@ MonoBehaviour:
   rotateManager: {fileID: 0}
   RotateManagerScript: {fileID: 0}
   RotateParent: {fileID: 7460417318398243032}
+  SwapManagerScript: {fileID: 0}
 --- !u!114 &-1408217536212657258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,6 +313,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: c0355a99-f3f5-4124-a17a-b8ded9edc5c9
     m_ActionName: Player/Rotate Left[/DualShock4GamepadHID/dpad/left]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2936017932482911335}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnSwap
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b9f87d76-6edb-4e82-9c3e-d7f02a2fa860
+    m_ActionName: Player/Swap[/DualShock4GamepadHID/buttonNorth,/DualShock4GamepadHID1/buttonNorth]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
