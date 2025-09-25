@@ -10,6 +10,8 @@ TagManager:
   - Player1
   - Player2
   - SwapManager
+  - P1Position
+  - P2Position
   layers:
   - Default
   - TransparentFX

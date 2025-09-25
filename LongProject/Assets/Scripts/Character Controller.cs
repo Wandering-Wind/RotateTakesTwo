@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.HID;
@@ -47,6 +48,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private SwapManager SwapManagerScript;
     private GameObject SwapManagerGO;
+    [SerializeField]
+    private List<GameObject> StartPositions;
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -78,7 +81,8 @@ public class PlayerController : MonoBehaviour
             RotateManagerScript.Rotations.Add(RotateParent);
             transform.tag = "Player1";
             SwapManagerScript.Players.Add(transform);
-
+            StartPositions[0] = GameObject.FindGameObjectWithTag("P1Position");
+            transform.position = StartPositions[0].transform.position;
         }
         else if (playerInput.playerIndex == 1)
         {
@@ -90,6 +94,8 @@ public class PlayerController : MonoBehaviour
             RotateManagerScript.Rotations.Add(RotateParent);
             transform.tag = "Player2";
             SwapManagerScript.Players.Add(transform);
+            StartPositions[1] = GameObject.FindGameObjectWithTag("P2Position");
+            transform.position = StartPositions[1].transform.position;
 
         }
 

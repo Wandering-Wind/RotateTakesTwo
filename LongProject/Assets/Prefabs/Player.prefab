@@ -176,6 +176,9 @@ MonoBehaviour:
   RotateManagerScript: {fileID: 0}
   RotateParent: {fileID: 7460417318398243032}
   SwapManagerScript: {fileID: 0}
+  StartPositions:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &-1408217536212657258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,7 +362,7 @@ Transform:
   m_GameObject: {fileID: 5993136672998737290}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.984, y: 0.487, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
