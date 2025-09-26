@@ -51,7 +51,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Rotate Right",
+                    "name": "Rotate Left",
                     "type": "Button",
                     "id": "8de22ee6-4837-43b4-b4b5-52b0bd94a1c1",
                     "expectedControlType": "Button",
@@ -60,7 +60,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Rotate Left",
+                    "name": "Rotate Right",
                     "type": "Button",
                     "id": "c0355a99-f3f5-4124-a17a-b8ded9edc5c9",
                     "expectedControlType": "Button",
@@ -159,22 +159,22 @@
                 {
                     "name": "",
                     "id": "43b2d5ba-d57c-43db-bb24-1e0ab4721766",
-                    "path": "<Gamepad>/dpad/right",
+                    "path": "<Gamepad>/dpad/left",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Rotate Right",
+                    "action": "Rotate Left",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "b35ddb6c-8008-4076-b388-689d95782d14",
-                    "path": "<Gamepad>/dpad/left",
+                    "path": "<Gamepad>/dpad/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Rotate Left",
+                    "action": "Rotate Right",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

@@ -36,6 +36,8 @@ public class RotateManager : MonoBehaviour
             Rotate();
         }
 
+        
+
 
 
 
@@ -48,6 +50,7 @@ public class RotateManager : MonoBehaviour
                     foreach (Transform t in Levels)
                     {
                         t.Rotate(0, 0, 90 * Time.deltaTime);
+                        Debug.Log("Rotate Left");
                     }
                 }
                 else if (RotateRight.All(b => b))
@@ -83,6 +86,10 @@ public class RotateManager : MonoBehaviour
     IEnumerator RotateWorld()
     {
         isRotating = true;
+        for (int i = 0; i < Players.Count; i++)
+        {
+            Rotations[i].transform.position = Players[i].transform.position;
+        }
         CheckRotation = false;
         for (int i = 0; i < 2; i++)
         {

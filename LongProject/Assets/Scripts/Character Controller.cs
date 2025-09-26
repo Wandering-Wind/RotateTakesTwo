@@ -44,8 +44,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private RotateManager RotateManagerScript;
     [SerializeField]
-    private Transform RotateParent;
-    [SerializeField]
     private SwapManager SwapManagerScript;
     private GameObject SwapManagerGO;
     [SerializeField]
@@ -78,7 +76,6 @@ public class PlayerController : MonoBehaviour
             MeshFilter PlayerMesh = GetComponent<MeshFilter>();
             PlayerMesh.mesh = Meshes[0];
             RotateManagerScript.Players.Add(transform);
-            RotateManagerScript.Rotations.Add(RotateParent);
             transform.tag = "Player1";
             SwapManagerScript.Players.Add(transform);
             StartPositions[0] = GameObject.FindGameObjectWithTag("P1Position");
@@ -91,12 +88,12 @@ public class PlayerController : MonoBehaviour
             MeshFilter PlayerMesh = GetComponent<MeshFilter>();
             PlayerMesh.mesh = Meshes[1];
             RotateManagerScript.Players.Add(transform);
-            RotateManagerScript.Rotations.Add(RotateParent);
             transform.tag = "Player2";
             SwapManagerScript.Players.Add(transform);
             StartPositions[1] = GameObject.FindGameObjectWithTag("P2Position");
             transform.position = StartPositions[1].transform.position;
-
+            AudioListener AL = GetComponent<AudioListener>();
+            Destroy(AL);
         }
 
 
