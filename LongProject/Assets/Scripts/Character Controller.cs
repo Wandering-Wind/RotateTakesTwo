@@ -52,13 +52,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private List<GameObject> StartPositions;
 
-    Transform BlockParent;
-
-    [Header("Block Pushing")]
-    [SerializeField] private float pushForce = 10f;
-    [SerializeField] private float checkDistance = 2f;
-
-    private Transform originalParent = null;
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -165,7 +158,6 @@ public class PlayerController : MonoBehaviour
                     {
 
                         HeldObject = hit.collider.gameObject;
-                        BlockParent = hit.collider.transform.parent;
                         HeldObject.transform.parent = transform;
                     }
                 }

@@ -31,12 +31,14 @@ public class RotateManager : MonoBehaviour
     {
 
 
-        if (RotateLeft.All(b => b) || RotateRight.All(b => b))
+        if (RotateRight.All(b => b))
         {
             Rotate();
         }
-
-        
+        else if (RotateLeft.All(b => b))
+        {
+            Rotate();
+        }
 
 
 
@@ -50,7 +52,6 @@ public class RotateManager : MonoBehaviour
                     foreach (Transform t in Levels)
                     {
                         t.Rotate(0, 0, 90 * Time.deltaTime);
-                        Debug.Log("Rotate Left");
                     }
                 }
                 else if (RotateRight.All(b => b))
