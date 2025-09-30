@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveInput;
     private Rigidbody rb;
 
+
+
+
     [Header("Movement Settings")]
     public float speed = 5f;
     public float jumpForce = 10f;
@@ -50,6 +53,12 @@ public class PlayerController : MonoBehaviour
     private List<GameObject> StartPositions;
 
     Transform BlockParent;
+
+    [Header("Block Pushing")]
+    [SerializeField] private float pushForce = 10f;
+    [SerializeField] private float checkDistance = 2f;
+
+    private Transform originalParent = null;
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -161,7 +170,7 @@ public class PlayerController : MonoBehaviour
                     }
                 }
             }
-            else if(context.canceled)
+            else if (context.canceled)
             {
                 isPushing = false;
                 if (Physics.Raycast(ray, out hit, 2, InteractLayer))
@@ -172,11 +181,10 @@ public class PlayerController : MonoBehaviour
                         HeldObject.AddComponent<Rigidbody>();
                         Rigidbody rb = HeldObject.GetComponent<Rigidbody>();
                         Destroy(rb, 0.2f);
-                        
-                        HeldObject.transform.parent = BlockParent;
-                        BlockParent = null;
+
+                        HeldObject.transform.parent = null;
                         HeldObject = null;
-                        
+
 
                     }
                 }

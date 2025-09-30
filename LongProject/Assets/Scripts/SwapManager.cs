@@ -10,6 +10,8 @@ public class SwapManager : MonoBehaviour
     public bool isSwapping;
     [SerializeField]
     private List<Vector3> PlayerPositions;
+    [SerializeField]
+    private RotateManager RotateManagerScript;
     
 
     private void Update()
@@ -41,6 +43,7 @@ public class SwapManager : MonoBehaviour
             {
                 CanSwap[i] = false;
             }
+            RotateManagerScript.Levels.Reverse();
 
             isSwapping = false;
         }
