@@ -48,6 +48,8 @@ public class PlayerController : MonoBehaviour
     private GameObject SwapManagerGO;
     [SerializeField]
     private List<GameObject> StartPositions;
+
+    Transform BlockParent;
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -138,6 +140,7 @@ public class PlayerController : MonoBehaviour
     }
     public void OnAbility(InputAction.CallbackContext context)
     {
+        
         if (isBigPlayer)
         {
 
@@ -151,7 +154,9 @@ public class PlayerController : MonoBehaviour
                 {
                     if (hit.collider.CompareTag("HeavyBlock"))
                     {
+
                         HeldObject = hit.collider.gameObject;
+                        BlockParent = hit.collider.transform.parent;
                         HeldObject.transform.parent = transform;
                     }
                 }
@@ -167,7 +172,9 @@ public class PlayerController : MonoBehaviour
                         HeldObject.AddComponent<Rigidbody>();
                         Rigidbody rb = HeldObject.GetComponent<Rigidbody>();
                         Destroy(rb, 0.2f);
-                        HeldObject.transform.parent = null;
+                        
+                        HeldObject.transform.parent = BlockParent;
+                        BlockParent = null;
                         HeldObject = null;
                         
 

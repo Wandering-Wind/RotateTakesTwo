@@ -152,7 +152,7 @@ MonoBehaviour:
   speed: 5
   jumpForce: 10
   JumpForceForBigPlayer: 5
-  raycastDistance: 1
+  raycastDistance: 2
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -163,7 +163,7 @@ MonoBehaviour:
   cm: {fileID: 0}
   isBigPlayer: 0
   isSmallPlayer: 0
-  rotateSpeed: 100
+  rotateSpeed: 150
   turnInput: 0
   MaxSpeed: 10
   normalSpeed: 5
