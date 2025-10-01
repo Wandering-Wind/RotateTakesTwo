@@ -16,6 +16,7 @@ TagManager:
   - JoinPanel2
   - JoinPanel1
   - KillBox
+  - UIcontrols
   layers:
   - Default
   - TransparentFX

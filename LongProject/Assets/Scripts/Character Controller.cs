@@ -53,6 +53,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private List<GameObject> StartPositions;
     private GameObject JoinPanel;
+
+    private GameObject UIControlGO;
+    private UIControl UIcontrolsScript;
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -73,7 +76,8 @@ public class PlayerController : MonoBehaviour
         SwapManagerGO = GameObject.FindGameObjectWithTag("SwapManager");
         RotateManagerScript = rotateManager.GetComponent<RotateManager>();
         SwapManagerScript = SwapManagerGO.GetComponent<SwapManager>();
-
+        UIControlGO = GameObject.FindGameObjectWithTag("UIcontrols");
+        UIcontrolsScript = UIControlGO.GetComponent<UIControl>();
         if (playerInput.playerIndex == 0)
         {
             SpriteRenderer spriteRend = GetComponent<SpriteRenderer>();
@@ -356,5 +360,10 @@ public class PlayerController : MonoBehaviour
             
             
         }
+    }
+
+    public void Pauseandplay(InputAction.CallbackContext context)
+    {
+        UIcontrolsScript.PauseandPlay();
     }
 }

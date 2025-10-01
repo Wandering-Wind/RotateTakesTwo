@@ -8,7 +8,7 @@ public class UIControl : MonoBehaviour
 {
     public GameObject PausePanel;
 
-    public void PauseandPlay(InputAction.CallbackContext context)
+    public void PauseandPlay()
     {
         if (PausePanel.activeSelf)
         {

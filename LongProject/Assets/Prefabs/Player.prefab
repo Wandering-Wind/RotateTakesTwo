@@ -331,7 +331,19 @@ MonoBehaviour:
     m_ActionId: b9f87d76-6edb-4e82-9c3e-d7f02a2fa860
     m_ActionName: Player/Swap[/DualShock4GamepadHID/buttonNorth,/DualShock4GamepadHID1/buttonNorth]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2936017932482911335}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Pauseandplay
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 49d73418-68bb-480e-a4ee-13a3056c2e68
     m_ActionName: Player/Pause[/DualShock4GamepadHID/start,/DualShock4GamepadHID1/start]
   m_NeverAutoSwitchControlSchemes: 0
@@ -402,7 +414,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 2.67
   far clip plane: 1000
   field of view: 60
   orthographic: 0
