@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.HID;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
@@ -51,7 +52,7 @@ public class PlayerController : MonoBehaviour
     private GameObject SwapManagerGO;
     [SerializeField]
     private List<GameObject> StartPositions;
-
+    private GameObject JoinPanel;
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -84,6 +85,9 @@ public class PlayerController : MonoBehaviour
             SwapManagerScript.Players.Add(transform);
             StartPositions[0] = GameObject.FindGameObjectWithTag("P1Position");
             transform.position = StartPositions[0].transform.position;
+            JoinPanel = GameObject.FindGameObjectWithTag("JoinPanel1");
+            Destroy(JoinPanel);
+
         }
         else if (playerInput.playerIndex == 1)
         {
@@ -98,6 +102,9 @@ public class PlayerController : MonoBehaviour
             transform.position = StartPositions[1].transform.position;
             AudioListener AL = GetComponent<AudioListener>();
             Destroy(AL);
+            JoinPanel = GameObject.FindGameObjectWithTag("JoinPanel2");
+            Destroy(JoinPanel);
+
         }
 
 
@@ -341,6 +348,13 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(other.gameObject);
             cm.coinCounter++;
+        }
+        else if (other.CompareTag("KillBox"))
+        {
+            string Currentscene = SceneManager.GetActiveScene().name;
+            SceneManager.LoadScene(Currentscene);
+            
+            
         }
     }
 }

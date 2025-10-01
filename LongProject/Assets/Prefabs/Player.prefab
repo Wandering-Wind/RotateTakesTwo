@@ -151,7 +151,7 @@ MonoBehaviour:
   moveInput: {x: 0, y: 0}
   speed: 5
   jumpForce: 10
-  JumpForceForBigPlayer: 5
+  JumpForceForBigPlayer: 4
   raycastDistance: 2
   groundLayer:
     serializedVersion: 2
@@ -330,6 +330,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: b9f87d76-6edb-4e82-9c3e-d7f02a2fa860
     m_ActionName: Player/Swap[/DualShock4GamepadHID/buttonNorth,/DualShock4GamepadHID1/buttonNorth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 49d73418-68bb-480e-a4ee-13a3056c2e68
+    m_ActionName: Player/Pause[/DualShock4GamepadHID/start,/DualShock4GamepadHID1/start]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

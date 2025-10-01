@@ -12,6 +12,10 @@ TagManager:
   - SwapManager
   - P1Position
   - P2Position
+  - Coin
+  - JoinPanel2
+  - JoinPanel1
+  - KillBox
   layers:
   - Default
   - TransparentFX
