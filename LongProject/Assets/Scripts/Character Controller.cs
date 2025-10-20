@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
 
     private bool isPushing;
     [SerializeField]
-    private Mesh[] Meshes;
+    private GameObject[] PlayerGameObject;
     [SerializeField]
     private GameObject rotateManager;
     [SerializeField]
@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
             SpriteRenderer spriteRend = GetComponent<SpriteRenderer>();
             isSmallPlayer = true;
             MeshFilter PlayerMesh = GetComponent<MeshFilter>();
-            PlayerMesh.mesh = Meshes[0];
+            Destroy(PlayerGameObject[1]);
             RotateManagerScript.Players.Add(transform);
             transform.tag = "Player1";
             SwapManagerScript.Players.Add(transform);
@@ -98,7 +98,7 @@ public class PlayerController : MonoBehaviour
             SpriteRenderer spriteRend = GetComponent<SpriteRenderer>();
             isBigPlayer = true;
             MeshFilter PlayerMesh = GetComponent<MeshFilter>();
-            PlayerMesh.mesh = Meshes[1];
+            Destroy(PlayerGameObject[0]);
             RotateManagerScript.Players.Add(transform);
             transform.tag = "Player2";
             SwapManagerScript.Players.Add(transform);

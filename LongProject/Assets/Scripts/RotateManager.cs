@@ -17,6 +17,13 @@ public class RotateManager : MonoBehaviour
 
     public List<Transform> Players;
     private bool CheckRotation;
+
+    public List<GameObject> RotateRightUI;
+    public List<GameObject> RotateLeftUI;
+
+    public List<GameObject> RotateImageRight;
+    public List<GameObject> RotateImageLeft;
+
     public void Rotate()
     {
 
@@ -39,6 +46,49 @@ public class RotateManager : MonoBehaviour
         {
             Rotate();
         }
+
+        if (RotateRight[0])
+        {
+            RotateRightUI[1].SetActive(true);
+        }
+        else if (!RotateRight[0])
+        {
+            RotateRightUI[1].SetActive(false);
+        }
+
+        if (RotateRight[1])
+        {
+            RotateRightUI[0].SetActive(true);
+        }
+        else if (!RotateRight[1])
+        {
+            RotateRightUI[0].SetActive(false);
+        }
+
+        if (RotateLeft[0])
+        {
+            RotateLeftUI[1].SetActive(true);
+        }
+        else if (!RotateLeft[0])
+        {
+            RotateLeftUI[1].SetActive(false);
+        }
+
+        if (RotateLeft[1])
+        {
+            RotateLeftUI[0].SetActive(true);
+        }
+        else if (!RotateLeft[1])
+        {
+            RotateLeftUI[0].SetActive(false);
+        }
+
+
+        RotateImageRight[0].transform.Rotate(0, 0, -100 * Time.deltaTime);
+        RotateImageLeft[0].transform.Rotate(0, 0, 100 * Time.deltaTime);
+
+        RotateImageLeft[1].transform.Rotate(0, 0, -100 * Time.deltaTime);
+        RotateImageRight[1].transform.Rotate(0, 0, 100 * Time.deltaTime);
 
 
 

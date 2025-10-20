@@ -12,7 +12,7 @@ public class SwapManager : MonoBehaviour
     private List<Vector3> PlayerPositions;
     [SerializeField]
     private RotateManager RotateManagerScript;
-    
+    public List<GameObject> SwapUI;
 
     private void Update()
     {
@@ -23,6 +23,24 @@ public class SwapManager : MonoBehaviour
                 Swap();
             }
 
+        }
+
+        if (CanSwap[0])
+        {
+            SwapUI[1].SetActive(true);
+        }
+        else if (!CanSwap[0])
+        {
+            SwapUI[1].SetActive(false);
+        }
+
+        if (CanSwap[1])
+        {
+            SwapUI[0].SetActive(true);
+        }
+        else if (!CanSwap[1])
+        {
+            SwapUI[0].SetActive(false);
         }
     }
     public void Swap()
