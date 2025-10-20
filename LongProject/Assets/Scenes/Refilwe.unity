@@ -5454,6 +5454,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7601226680800833775, guid: dd14108eda4eb35439ad815d41e31a82, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 03fe0abb61a1e754ab49ee2dce2aadf7, type: 2}
     - target: {fileID: 919132149155446097, guid: dd14108eda4eb35439ad815d41e31a82, type: 3}
       propertyPath: m_Name
       value: CeilingLight
@@ -5462,6 +5466,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c914cb0eccde02c439206d304c0aec00, type: 2}
+    - target: {fileID: 7202271454713460447, guid: dd14108eda4eb35439ad815d41e31a82, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 03fe0abb61a1e754ab49ee2dce2aadf7, type: 2}
     - target: {fileID: 8632055958874330854, guid: dd14108eda4eb35439ad815d41e31a82, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.8542096
@@ -7472,6 +7480,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7601226680800833775, guid: dd14108eda4eb35439ad815d41e31a82, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 03fe0abb61a1e754ab49ee2dce2aadf7, type: 2}
     - target: {fileID: 919132149155446097, guid: dd14108eda4eb35439ad815d41e31a82, type: 3}
       propertyPath: m_Name
       value: CeilingLight (1)
@@ -7480,6 +7492,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c914cb0eccde02c439206d304c0aec00, type: 2}
+    - target: {fileID: 7202271454713460447, guid: dd14108eda4eb35439ad815d41e31a82, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 03fe0abb61a1e754ab49ee2dce2aadf7, type: 2}
     - target: {fileID: 8632055958874330854, guid: dd14108eda4eb35439ad815d41e31a82, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.8542096
