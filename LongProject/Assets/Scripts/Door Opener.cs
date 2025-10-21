@@ -15,6 +15,8 @@ public class DoorOpener : MonoBehaviour
         if (collision.gameObject.CompareTag("HeavyBlock"))
         {
             DoorAnimator.SetBool(Animation, true);
+            collision.gameObject.transform.position = transform.position;
+            collision.gameObject.transform.parent = transform;
         }
     }
 
