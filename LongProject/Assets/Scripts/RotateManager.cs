@@ -144,7 +144,10 @@ public class RotateManager : MonoBehaviour
         CheckRotation = false;
         for (int i = 0; i < 2; i++)
         {
-            Levels[i].parent = Rotations[i];
+            if (Rotations[i].transform.position == Players[i].transform.position)
+            {
+                Levels[i].parent = Rotations[i];
+            }
         }
         yield return new WaitForSeconds(RotateDuration); // Use your RotateDuration variable
         for (int i = 0; i < 2; i++)
