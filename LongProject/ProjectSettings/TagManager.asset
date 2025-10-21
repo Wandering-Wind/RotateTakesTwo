@@ -17,6 +17,9 @@ TagManager:
   - JoinPanel1
   - KillBox
   - UIcontrols
+  - TextBox
+  - ComUI
+  - TextBox2
   layers:
   - Default
   - TransparentFX

@@ -1,0 +1,74 @@
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using static UnityEditor.Timeline.TimelinePlaybackControls;
+
+public class PlayerUICominucations : MonoBehaviour
+{
+    public LayerMask InteractLayer;
+    [SerializeField]
+    private List<string> Tags;
+    public TextMeshProUGUI CommunicationText;
+    public GameObject TextBox;
+    private PlayerInput playerInputManager;
+    private GameObject TextBox2;
+    public TextMeshProUGUI CommunicationText2;
+
+    private void Start()
+    {
+        playerInputManager = GetComponent<PlayerInput>();
+        TextBox = GameObject.FindGameObjectWithTag("TextBox");
+        CommunicationText = TextBox.GetComponentInChildren<TextMeshProUGUI>();
+        TextBox2 = GameObject.FindGameObjectWithTag("TextBox2");
+        CommunicationText2 = TextBox2.GetComponentInChildren<TextMeshProUGUI>();
+    }
+    private void Update()
+    {
+        if (playerInputManager.playerIndex == 1)
+        {
+            Ray ray = new Ray(transform.position, transform.forward);
+            RaycastHit hit;
+
+
+
+            if (Physics.Raycast(ray, out hit, 4, InteractLayer))
+            {
+                if (Tags.Contains(hit.collider.gameObject.name))
+                {
+                    CommunicationText.text = "[" + hit.collider.gameObject.name + "]" + " R2/RT to Push";
+                    TextBox.SetActive(true);
+                }
+            }
+            else
+            {
+                Debug.Log("None");
+                TextBox.SetActive(false);
+
+            }
+        }
+        else if (playerInputManager.playerIndex == 0)
+        {
+            Ray ray = new Ray(transform.position, transform.forward);
+            RaycastHit hit;
+
+
+
+            if (Physics.Raycast(ray, out hit, 4, InteractLayer))
+            {
+                if (Tags.Contains(hit.collider.gameObject.name))
+                {
+                    CommunicationText2.text = "[ Need Other Player ]";
+                    TextBox2.SetActive(true);
+                }
+            }
+            else
+            {
+                Debug.Log("None");
+                TextBox2.SetActive(false);
+
+            }
+        }
+    }
+}

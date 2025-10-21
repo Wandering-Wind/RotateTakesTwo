@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 2623590872712678955}
   - component: {fileID: 2936017932482911335}
   - component: {fileID: -1408217536212657258}
+  - component: {fileID: 160680966706464266}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -383,6 +384,26 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 6740777218249604672}
+--- !u!114 &160680966706464266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015193743634310084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f544fc0d31703c645aa210c71c4d0872, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InteractLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  Tags:
+  - CrossBlock
+  - Cupboard
+  CommunicationText: {fileID: 0}
+  TextBox: {fileID: 0}
 --- !u!1 &2977421327855862692
 GameObject:
   m_ObjectHideFlags: 0
