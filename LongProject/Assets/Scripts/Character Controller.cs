@@ -10,7 +10,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Vector2 moveInput;
     private Rigidbody rb;
-
+    [SerializeField]
+    private List<ParticleSystem> player1Particles;
+    [SerializeField]
+    private List<TrailRenderer> Player1Trails, Player2Trails;
+    
 
 
 
@@ -56,6 +60,8 @@ public class PlayerController : MonoBehaviour
 
     private GameObject UIControlGO;
     private UIControl UIcontrolsScript;
+    [SerializeField]
+    private List<Animator> PlayerAnimations;
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -156,6 +162,11 @@ public class PlayerController : MonoBehaviour
         
         if (isBigPlayer)
         {
+            for (int i = 0; i < player1Particles.Count; i++)
+            {
+                player1Particles[i].Play();
+            }
+
 
             Ray ray = new Ray(transform.position, transform.forward);
             RaycastHit hit;
@@ -195,16 +206,25 @@ public class PlayerController : MonoBehaviour
         }
         else if (isSmallPlayer)
         {
+            
             if (context.started)
             {
                if(speed < MaxSpeed)
                 {
                     speed +=3;
+                    for (int i = 0; i < Player2Trails.Count; i++)
+                    {
+                        Player2Trails[i].time = 0.1f;
+                    }
                 }
             }
             else if (context.canceled)
             {
-                speed = normalSpeed; 
+                speed = normalSpeed;
+                for (int i = 0; i < Player2Trails.Count; i++)
+                {
+                    Player2Trails[i].time = 0;
+                }
             }
         }
     }
@@ -223,6 +243,36 @@ public class PlayerController : MonoBehaviour
 
         float currentAngle = transform.eulerAngles.z;
 
+
+        if (playerInput.playerIndex == 0)
+        {
+            if (moveInput.x > 0 || moveInput.y > 0)
+            {
+                PlayerAnimations[0].SetBool("Move", true);
+            }
+            else if (moveInput.x == 0 && moveInput.y == 0)
+            {
+                PlayerAnimations[0].SetBool("Move", false);
+
+            }
+        }
+        else if (playerInput.playerIndex == 1)
+        {
+            if (moveInput.x > 0 || moveInput.y > 0)
+            {
+                PlayerAnimations[1].SetBool("Move", true);
+                player1Particles[2].Play();
+                player1Particles[3].Play();
+            }
+            else if (moveInput.x == 0 && moveInput.y == 0)
+            {
+                PlayerAnimations[1].SetBool("Move", false);
+                player1Particles[2].Stop();
+                player1Particles[3].Stop();
+
+
+            }
+        }
         if (!RotateManagerScript.isRotating)
         {
             rb.useGravity = true;
