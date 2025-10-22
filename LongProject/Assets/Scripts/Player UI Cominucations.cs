@@ -31,6 +31,8 @@ public class PlayerUICominucations : MonoBehaviour
             CommunicationText = TextBox.GetComponentInChildren<TextMeshProUGUI>();
             TextBox3 = GameObject.FindGameObjectWithTag("TextBox3");
             CommunicationText3 = TextBox3.GetComponentInChildren<TextMeshProUGUI>();
+            TextBox3.SetActive(false);
+
         }
         else if (playerInputManager.playerIndex == 1)
         {
@@ -38,6 +40,7 @@ public class PlayerUICominucations : MonoBehaviour
             CommunicationText2 = TextBox2.GetComponentInChildren<TextMeshProUGUI>();
             TextBox4 = GameObject.FindGameObjectWithTag("TextBox4");
             CommunicationText4 = TextBox4.GetComponentInChildren<TextMeshProUGUI>();
+            TextBox4.SetActive(false);
         }
 
 

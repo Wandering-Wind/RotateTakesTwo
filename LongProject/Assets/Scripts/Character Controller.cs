@@ -89,6 +89,7 @@ public class PlayerController : MonoBehaviour
         UIControlGO = GameObject.FindGameObjectWithTag("UIcontrols");
         UIcontrolsScript = UIControlGO.GetComponent<UIControl>();
         UIcontrol = GetComponent<PlayerUICominucations>();
+        
 
 
         if (playerInput.playerIndex == 0)
