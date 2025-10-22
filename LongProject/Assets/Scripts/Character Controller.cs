@@ -65,6 +65,10 @@ public class PlayerController : MonoBehaviour
     private List<Animator> PlayerAnimations;
     private bool inPortal;
 
+    private GameObject EndManager;
+    private EndGameManager endGameManagerScript;
+
+
     private PlayerUICominucations UIcontrol;
     void Awake()
     {
@@ -89,9 +93,10 @@ public class PlayerController : MonoBehaviour
         UIControlGO = GameObject.FindGameObjectWithTag("UIcontrols");
         UIcontrolsScript = UIControlGO.GetComponent<UIControl>();
         UIcontrol = GetComponent<PlayerUICominucations>();
-        
 
 
+        EndManager = GameObject.FindGameObjectWithTag("Finish");
+        endGameManagerScript = EndManager.GetComponent<EndGameManager>();
         if (playerInput.playerIndex == 0)
         {
             SpriteRenderer spriteRend = GetComponent<SpriteRenderer>();
@@ -342,6 +347,8 @@ public class PlayerController : MonoBehaviour
 
     }
 
+   
+
     public void OnInteract(InputAction.CallbackContext context)
     {
         Ray ray = new Ray(transform.position, transform.forward);
@@ -351,7 +358,11 @@ public class PlayerController : MonoBehaviour
         {
             if (hit.collider.CompareTag("Door"))
             {
-                Destroy(hit.collider.gameObject);
+                if (endGameManagerScript.canOpenDoors)
+                {
+                    Destroy(hit.collider.gameObject);
+                    endGameManagerScript.DoorsOpened[playerInput.playerIndex] = true;
+                }
                 //Door Open Script Here
             }
         }

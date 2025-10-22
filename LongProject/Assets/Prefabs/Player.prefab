@@ -418,9 +418,18 @@ MonoBehaviour:
   Tags:
   - CrossBlock
   - Cupboard
+  - Door
+  - GreenBlock
+  - Key
+  - Key2
   CommunicationText: {fileID: 0}
   TextBox: {fileID: 0}
+  TextBox2: {fileID: 0}
+  TextBox3: {fileID: 0}
+  TextBox4: {fileID: 0}
   CommunicationText2: {fileID: 0}
+  CommunicationText3: {fileID: 0}
+  CommunicationText4: {fileID: 0}
 --- !u!1 &2977421327855862692
 GameObject:
   m_ObjectHideFlags: 0

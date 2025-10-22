@@ -24,6 +24,8 @@ TagManager:
   - InputManager
   - TextBox3
   - TextBox4
+  - Key
+  - Key2
   layers:
   - Default
   - TransparentFX
