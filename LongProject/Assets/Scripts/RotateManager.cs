@@ -23,6 +23,7 @@ public class RotateManager : MonoBehaviour
 
     public List<GameObject> RotateImageRight;
     public List<GameObject> RotateImageLeft;
+    public List<GameObject> RotateUIBG;
 
     public void Rotate()
     {
@@ -54,11 +55,13 @@ public class RotateManager : MonoBehaviour
         else if (!RotateRight[0])
         {
             RotateRightUI[1].SetActive(false);
+
         }
 
         if (RotateRight[1])
         {
             RotateRightUI[0].SetActive(true);
+
         }
         else if (!RotateRight[1])
         {
@@ -68,19 +71,40 @@ public class RotateManager : MonoBehaviour
         if (RotateLeft[0])
         {
             RotateLeftUI[1].SetActive(true);
+
         }
         else if (!RotateLeft[0])
         {
             RotateLeftUI[1].SetActive(false);
+
         }
 
         if (RotateLeft[1])
         {
             RotateLeftUI[0].SetActive(true);
+
         }
         else if (!RotateLeft[1])
         {
             RotateLeftUI[0].SetActive(false);
+        }
+
+        if (RotateRight[0] || RotateLeft[0])
+            {
+            RotateUIBG[0].SetActive(true);
+        }
+        else if (!RotateRight[0] && !RotateLeft[0])
+        {
+            RotateUIBG[0].SetActive(false);
+        }
+
+        if (RotateRight[1] || RotateLeft[1])
+        {
+            RotateUIBG[1].SetActive(true);
+        }
+        else if (!RotateRight[1] && !RotateLeft[1])
+        {
+            RotateUIBG[1].SetActive(false);
         }
 
 

@@ -12,19 +12,39 @@ public class PlayerUICominucations : MonoBehaviour
     public TextMeshProUGUI CommunicationText;
     public GameObject TextBox;
     private PlayerInput playerInputManager;
-    private GameObject TextBox2;
+    public GameObject TextBox2;
+    public GameObject TextBox3;
+    public GameObject TextBox4;
     public TextMeshProUGUI CommunicationText2;
+    public TextMeshProUGUI CommunicationText3;
+    public TextMeshProUGUI CommunicationText4;
+
 
     private void Start()
     {
         playerInputManager = GetComponent<PlayerInput>();
-        TextBox = GameObject.FindGameObjectWithTag("TextBox");
-        CommunicationText = TextBox.GetComponentInChildren<TextMeshProUGUI>();
-        TextBox2 = GameObject.FindGameObjectWithTag("TextBox2");
-        CommunicationText2 = TextBox2.GetComponentInChildren<TextMeshProUGUI>();
+        
+        
+        if (playerInputManager.playerIndex == 0 )
+        {
+            TextBox = GameObject.FindGameObjectWithTag("TextBox");
+            CommunicationText = TextBox.GetComponentInChildren<TextMeshProUGUI>();
+            TextBox3 = GameObject.FindGameObjectWithTag("TextBox3");
+            CommunicationText3 = TextBox3.GetComponentInChildren<TextMeshProUGUI>();
+        }
+        else if (playerInputManager.playerIndex == 1)
+        {
+            TextBox2 = GameObject.FindGameObjectWithTag("TextBox2");
+            CommunicationText2 = TextBox2.GetComponentInChildren<TextMeshProUGUI>();
+            TextBox4 = GameObject.FindGameObjectWithTag("TextBox4");
+            CommunicationText4 = TextBox4.GetComponentInChildren<TextMeshProUGUI>();
+        }
+
+
     }
     private void Update()
     {
+
         if (playerInputManager.playerIndex == 1)
         {
             Ray ray = new Ray(transform.position, transform.forward);
@@ -36,14 +56,14 @@ public class PlayerUICominucations : MonoBehaviour
             {
                 if (Tags.Contains(hit.collider.gameObject.name))
                 {
-                    CommunicationText.text = "[" + hit.collider.gameObject.name + "]" + " R2/RT to Push";
-                    TextBox.SetActive(true);
+                    CommunicationText2.text = "[" + hit.collider.gameObject.name + "]" + " R2/RT to Push";
+                    TextBox2.SetActive(true);
                 }
             }
             else
             {
                 Debug.Log("None");
-                TextBox.SetActive(false);
+                TextBox2.SetActive(false);
 
             }
         }
@@ -58,16 +78,17 @@ public class PlayerUICominucations : MonoBehaviour
             {
                 if (Tags.Contains(hit.collider.gameObject.name))
                 {
-                    CommunicationText2.text = "[ Need Other Player ]";
-                    TextBox2.SetActive(true);
+                    CommunicationText.text = "[ Need Other Player ]";
+                    TextBox.SetActive(true);
                 }
             }
             else
             {
                 Debug.Log("None");
-                TextBox2.SetActive(false);
+                TextBox.SetActive(false);
 
             }
         }
+
     }
 }

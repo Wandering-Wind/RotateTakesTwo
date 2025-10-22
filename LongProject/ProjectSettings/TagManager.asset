@@ -20,6 +20,10 @@ TagManager:
   - TextBox
   - ComUI
   - TextBox2
+  - Portal
+  - InputManager
+  - TextBox3
+  - TextBox4
   layers:
   - Default
   - TransparentFX

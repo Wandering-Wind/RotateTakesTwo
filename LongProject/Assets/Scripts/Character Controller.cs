@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.HID;
@@ -62,6 +63,9 @@ public class PlayerController : MonoBehaviour
     private UIControl UIcontrolsScript;
     [SerializeField]
     private List<Animator> PlayerAnimations;
+    private bool inPortal;
+
+    private PlayerUICominucations UIcontrol;
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -84,6 +88,9 @@ public class PlayerController : MonoBehaviour
         SwapManagerScript = SwapManagerGO.GetComponent<SwapManager>();
         UIControlGO = GameObject.FindGameObjectWithTag("UIcontrols");
         UIcontrolsScript = UIControlGO.GetComponent<UIControl>();
+        UIcontrol = GetComponent<PlayerUICominucations>();
+
+
         if (playerInput.playerIndex == 0)
         {
             SpriteRenderer spriteRend = GetComponent<SpriteRenderer>();
@@ -166,7 +173,7 @@ public class PlayerController : MonoBehaviour
             {
                 player1Particles[i].Play();
             }
-
+            transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
 
             Ray ray = new Ray(transform.position, transform.forward);
             RaycastHit hit;
@@ -181,6 +188,7 @@ public class PlayerController : MonoBehaviour
 
                         HeldObject = hit.collider.gameObject;
                         HeldObject.transform.parent = transform;
+                        HeldObject.transform.position = new Vector3(transform.position.x, HeldObject.transform.position.y, HeldObject.transform.position.z);
                     }
                 }
             }
@@ -242,8 +250,7 @@ public class PlayerController : MonoBehaviour
         CheckGrounded();
 
         float currentAngle = transform.eulerAngles.z;
-
-
+        
         if (playerInput.playerIndex == 0)
         {
             if (moveInput.x > 0 || moveInput.y > 0)
@@ -351,13 +358,46 @@ public class PlayerController : MonoBehaviour
 
     public void OnSwap(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (playerInput.playerIndex == 0)
         {
-           SwapManagerScript.CanSwap[playerInput.playerIndex] = true;
+            if (context.performed)
+            {
+                if (inPortal)
+                {
+                    SwapManagerScript.CanSwap[playerInput.playerIndex] = true;
+                }
+                else if(!inPortal)
+                {
+                    UIcontrol.TextBox3.SetActive(true);
+                    UIcontrol.CommunicationText3.text = "[Use portal to swap!!]";
+                }
+            }
+            else if (context.canceled)
+            {
+                SwapManagerScript.CanSwap[playerInput.playerIndex] = false;
+                UIcontrol.TextBox3.SetActive(false);
+            }
         }
-        else if (context.canceled)
+        else if (playerInput.playerIndex == 1)
         {
-            SwapManagerScript.CanSwap[playerInput.playerIndex] = false;
+            if (context.performed)
+            {
+                if (inPortal)
+                {
+                    SwapManagerScript.CanSwap[playerInput.playerIndex] = true;
+                }
+                else if(!inPortal)
+                {
+                   
+                    UIcontrol.TextBox4.SetActive(true);
+                    UIcontrol.CommunicationText4.text = "[Use portal to swap!!]";
+                }
+            }
+            else if (context.canceled)
+            {
+                SwapManagerScript.CanSwap[playerInput.playerIndex] = false;
+                UIcontrol.TextBox4.SetActive(false);
+            }
         }
     }
     public void OnRotate(InputAction.CallbackContext context)
@@ -412,6 +452,21 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Portal"))
+        {
+            inPortal = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Portal"))
+        {
+            inPortal = false;
+        }
+    }
     public void Pauseandplay(InputAction.CallbackContext context)
     {
         UIcontrolsScript.PauseandPlay();
