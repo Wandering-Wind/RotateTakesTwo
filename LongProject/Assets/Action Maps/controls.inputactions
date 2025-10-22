@@ -85,6 +85,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "freeLook",
+                    "type": "Value",
+                    "id": "66d7c666-9a15-44fe-a26a-8012e1862a1f",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -206,6 +215,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "825c8441-ab8f-4555-a629-a36f1e9723f5",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "StickDeadzone(min=0.05,max=0.05)",
+                    "groups": "",
+                    "action": "freeLook",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.HID;
@@ -62,17 +63,53 @@ public class PlayerController : MonoBehaviour
     private UIControl UIcontrolsScript;
     [SerializeField]
     private List<Animator> PlayerAnimations;
+    public Camera PlayerCam;
+
+    [Header("Input Settings")]
+    public float rightStickSensitivity = 2f;
+
+    private CinemachineFreeLook freeLookCamera;
+    private Vector2 rightStickInput;
+
+    public FreeLookRightStickControl freeLookControl;
+
+    public void OnLook(InputAction.CallbackContext context)
+    {
+        if (freeLookControl != null)
+        {
+            freeLookControl.OnRightStickLook(context);
+        }
+    }
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
         playerInput = GetComponent<PlayerInput>();
     }
 
+
+
     private void HandleRotation()
     {
-        // Convert the float rotation amount to a Quaternion
-        Quaternion deltaRotation = Quaternion.Euler(Vector3.up * turnInput * rotateSpeed * Time.fixedDeltaTime);
-        rb.MoveRotation(rb.rotation * deltaRotation);
+        // Only rotate if we're moving and not pushing
+        if (moveInput.magnitude > 0.1f && !isPushing)
+        {
+            // Create movement direction from input
+            Vector3 movementDirection = new Vector3(moveInput.x, 0f, moveInput.y);
+
+            // Convert direction from local space to world space relative to camera
+            movementDirection = PlayerCam.transform.TransformDirection(movementDirection);
+            movementDirection.y = 0f; // Keep the rotation horizontal
+
+            // Only rotate if we have a valid direction
+            if (movementDirection.magnitude > 0.1f)
+            {
+                // Calculate target rotation to look in movement direction
+                Quaternion targetRotation = Quaternion.LookRotation(movementDirection.normalized);
+
+                // Smoothly rotate towards movement direction
+                rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRotation, rotateSpeed * Time.fixedDeltaTime));
+            }
+        }
     }
 
 

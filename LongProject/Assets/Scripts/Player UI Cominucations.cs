@@ -17,37 +17,37 @@ public class PlayerUICominucations : MonoBehaviour
 
     private void Start()
     {
-        playerInputManager = GetComponent<PlayerInput>();
-        TextBox = GameObject.FindGameObjectWithTag("TextBox");
-        CommunicationText = TextBox.GetComponentInChildren<TextMeshProUGUI>();
-        TextBox2 = GameObject.FindGameObjectWithTag("TextBox2");
-        CommunicationText2 = TextBox2.GetComponentInChildren<TextMeshProUGUI>();
+        //playerInputManager = GetComponent<PlayerInput>();
+        //TextBox = GameObject.FindGameObjectWithTag("TextBox");
+        //CommunicationText = TextBox.GetComponentInChildren<TextMeshProUGUI>();
+        //TextBox2 = GameObject.FindGameObjectWithTag("TextBox2");
+        //CommunicationText2 = TextBox2.GetComponentInChildren<TextMeshProUGUI>();
     }
     private void Update()
     {
-        if (playerInputManager.playerIndex == 1)
-        {
-            Ray ray = new Ray(transform.position, transform.forward);
-            RaycastHit hit;
+        //if (playerInputManager.playerIndex == 1)
+        //{
+        //    Ray ray = new Ray(transform.position, transform.forward);
+        //    RaycastHit hit;
 
 
 
-            if (Physics.Raycast(ray, out hit, 4, InteractLayer))
-            {
-                if (Tags.Contains(hit.collider.gameObject.name))
-                {
-                    CommunicationText.text = "[" + hit.collider.gameObject.name + "]" + " R2/RT to Push";
-                    TextBox.SetActive(true);
-                }
-            }
-            else
-            {
-                Debug.Log("None");
-                TextBox.SetActive(false);
+        //    if (Physics.Raycast(ray, out hit, 4, InteractLayer))
+        //    {
+        //        if (Tags.Contains(hit.collider.gameObject.name))
+        //        {
+        //            CommunicationText.text = "[" + hit.collider.gameObject.name + "]" + " R2/RT to Push";
+        //            TextBox.SetActive(true);
+        //        }
+        //    }
+        //    else
+        //    {
+        //        Debug.Log("None");
+        //        TextBox.SetActive(false);
 
-            }
-        }
-        else if (playerInputManager.playerIndex == 0)
+        //    }
+        //}
+        //else if (playerInputManager.playerIndex == 0)
         {
             Ray ray = new Ray(transform.position, transform.forward);
             RaycastHit hit;
@@ -65,7 +65,7 @@ public class PlayerUICominucations : MonoBehaviour
             else
             {
                 Debug.Log("None");
-                TextBox2.SetActive(false);
+                //TextBox2.SetActive(false);
 
             }
         }
