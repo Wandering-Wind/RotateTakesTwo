@@ -336,7 +336,7 @@ MonoBehaviour:
   cm: {fileID: 0}
   isBigPlayer: 0
   isSmallPlayer: 0
-  rotateSpeed: 150
+  rotateSpeed: 200
   turnInput: 0
   MaxSpeed: 10
   normalSpeed: 5
@@ -1357,6 +1357,10 @@ PrefabInstance:
       propertyPath: m_PreviewTimeScale
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 394756906439900858, guid: 224c62a7b6af9fa4ca04834ba2630c9c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f5008c2c048c15e479c45baa1ad2cbf6, type: 2}
     - target: {fileID: 1680306565284745852, guid: 224c62a7b6af9fa4ca04834ba2630c9c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1401,6 +1405,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: new Tall Guy
       objectReference: {fileID: 0}
+    - target: {fileID: 4302109065474790865, guid: 224c62a7b6af9fa4ca04834ba2630c9c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f5008c2c048c15e479c45baa1ad2cbf6, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1535,6 +1543,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -2.091
       objectReference: {fileID: 0}
+    - target: {fileID: 3826381094097123641, guid: 26bc39f99d06f9b4cbfab82ebfead15c, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7474b9a70f3291b43976f09e2295803a, type: 2}
     - target: {fileID: 4197084000246466217, guid: 26bc39f99d06f9b4cbfab82ebfead15c, type: 3}
       propertyPath: m_Time
       value: 3
@@ -1546,11 +1558,19 @@ PrefabInstance:
     - target: {fileID: 4197084000246466217, guid: 26bc39f99d06f9b4cbfab82ebfead15c, type: 3}
       propertyPath: m_Parameters.colorGradient.key1.a
       value: 0.7882353
+      objectReference: {fileID: 0}
+    - target: {fileID: 4197084000246466217, guid: 26bc39f99d06f9b4cbfab82ebfead15c, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
+      value: 0.16421318
       objectReference: {fileID: 0}
     - target: {fileID: 6693516714686556460, guid: 26bc39f99d06f9b4cbfab82ebfead15c, type: 3}
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7077988752862922820, guid: 26bc39f99d06f9b4cbfab82ebfead15c, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7474b9a70f3291b43976f09e2295803a, type: 2}
     - target: {fileID: 7408018537599617503, guid: 26bc39f99d06f9b4cbfab82ebfead15c, type: 3}
       propertyPath: m_Time
       value: 3
@@ -1563,10 +1583,26 @@ PrefabInstance:
       propertyPath: m_Parameters.colorGradient.key1.a
       value: 0.7882353
       objectReference: {fileID: 0}
+    - target: {fileID: 7408018537599617503, guid: 26bc39f99d06f9b4cbfab82ebfead15c, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
+      value: 0.16421318
+      objectReference: {fileID: 0}
+    - target: {fileID: 7882714909167263956, guid: 26bc39f99d06f9b4cbfab82ebfead15c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7474b9a70f3291b43976f09e2295803a, type: 2}
+    - target: {fileID: 7951089079724540410, guid: 26bc39f99d06f9b4cbfab82ebfead15c, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7474b9a70f3291b43976f09e2295803a, type: 2}
     - target: {fileID: 7953102213945521680, guid: 26bc39f99d06f9b4cbfab82ebfead15c, type: 3}
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8428746912783678624, guid: 26bc39f99d06f9b4cbfab82ebfead15c, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7474b9a70f3291b43976f09e2295803a, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
