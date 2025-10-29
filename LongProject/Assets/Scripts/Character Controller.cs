@@ -257,6 +257,16 @@ public class PlayerController : MonoBehaviour
 
         float currentAngle = transform.eulerAngles.z;
         
+        if (RotateManagerScript.isRotating)
+        {
+            rb.useGravity = false;
+        }
+        else
+        {
+            rb.useGravity = true;
+
+        }
+
         if (playerInput.playerIndex == 0)
         {
             if (moveInput.x > 0 || moveInput.y > 0)
