@@ -21,7 +21,9 @@ public class PlayerUICominucations : MonoBehaviour
 
     private GameObject EndManager;
     private EndGameManager endGameManagerScript;
-
+    public Transform PlayerCamera;
+    [SerializeField]
+    private int RayDistance;
 
     private void Start()
     {
@@ -54,12 +56,12 @@ public class PlayerUICominucations : MonoBehaviour
 
         if (playerInputManager.playerIndex == 1)
         {
-            Ray ray = new Ray(transform.position, transform.forward);
+            Ray ray = new Ray(PlayerCamera.position, PlayerCamera.forward);
             RaycastHit hit;
 
 
 
-            if (Physics.Raycast(ray, out hit, 4, InteractLayer))
+            if (Physics.Raycast(ray, out hit, RayDistance, InteractLayer))
             {
                 if (Tags.Contains(hit.collider.gameObject.name))
                 {
@@ -88,7 +90,7 @@ public class PlayerUICominucations : MonoBehaviour
                     }
                 }
             }
-            else if (Physics.Raycast(ray, out hit, 4, InteractLayer))
+            else if (Physics.Raycast(ray, out hit, RayDistance, InteractLayer))
             {
                 
             }
@@ -101,7 +103,7 @@ public class PlayerUICominucations : MonoBehaviour
         }
         else if (playerInputManager.playerIndex == 0)
         {
-            Ray ray = new Ray(transform.position, transform.forward);
+            Ray ray = new Ray(PlayerCamera.position, PlayerCamera.forward);
             RaycastHit hit;
 
 
@@ -126,6 +128,11 @@ public class PlayerUICominucations : MonoBehaviour
                     else if (hit.collider.gameObject.name == "Key")
                     {
                         CommunicationText.text = "[This is Player 2's Key]";
+                        TextBox.SetActive(true);
+                    }
+                    else if (hit.collider.gameObject.name == "HandScanner")
+                    {
+                        CommunicationText.text = "[" +hit.collider.gameObject.name+ "]" + " R1/RB to Scan Hand";
                         TextBox.SetActive(true);
                     }
                     else { 

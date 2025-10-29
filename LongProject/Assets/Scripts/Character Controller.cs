@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
 
     private GameObject EndManager;
     private EndGameManager endGameManagerScript;
-
+    public Transform RayPoint;
 
     private PlayerUICominucations UIcontrol;
     void Awake()
@@ -361,7 +361,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        Ray ray = new Ray(transform.position, transform.forward);
+        Ray ray = new Ray(RayPoint.position, RayPoint.forward);
         RaycastHit hit;
 
         if (Physics.Raycast(ray,out hit, 3, InteractLayer))
@@ -374,6 +374,17 @@ public class PlayerController : MonoBehaviour
                     endGameManagerScript.DoorsOpened[playerInput.playerIndex] = true;
                 }
                 //Door Open Script Here
+            }
+            else if (hit.collider.CompareTag("HandScanner"))
+            {
+                MeshRenderer meshRenderer = hit.collider.gameObject.GetComponent<MeshRenderer>();
+                Material[] allMaterials = meshRenderer.materials;
+
+                // Access specific material by index
+                Material firstMaterial = meshRenderer.materials[0];
+
+                // Modify properties of specific materials
+                meshRenderer.materials[1].color = Color.green;
             }
         }
     }

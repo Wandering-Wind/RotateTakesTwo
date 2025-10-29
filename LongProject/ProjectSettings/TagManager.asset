@@ -26,6 +26,7 @@ TagManager:
   - TextBox4
   - Key
   - Key2
+  - HandScanner
   layers:
   - Default
   - TransparentFX
