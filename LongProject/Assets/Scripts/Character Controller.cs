@@ -195,6 +195,8 @@ public class PlayerController : MonoBehaviour
                         HeldObject = hit.collider.gameObject;
                         HeldObject.transform.parent = transform;
                         HeldObject.transform.position = new Vector3(transform.position.x, HeldObject.transform.position.y, HeldObject.transform.position.z);
+                        BoxCollider Bc = hit.collider.gameObject.GetComponent<BoxCollider>();
+                        Bc.isTrigger = true;
                     }
                 }
             }
@@ -212,7 +214,8 @@ public class PlayerController : MonoBehaviour
 
                         HeldObject.transform.parent = null;
                         HeldObject = null;
-
+                        BoxCollider Bc = hit.collider.gameObject.GetComponent<BoxCollider>();
+                        Bc.isTrigger = false;
 
                     }
                 }
