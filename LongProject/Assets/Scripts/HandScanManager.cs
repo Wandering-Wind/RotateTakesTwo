@@ -22,69 +22,130 @@ public class HandScanManager : MonoBehaviour
 
     private void Start()
     {
-        Material[] allMaterials = HandScannerMesh.materials;
-        ScannerMaterial = HandScannerMesh.materials[1];
+        // Get materials safely
+        if (HandScannerMesh != null && HandScannerMesh.materials.Length > 1)
+            ScannerMaterial = HandScannerMesh.materials[1];
 
-        Material[] allMaterials2 = HandScannerMesh2.materials;
-        Scanner2Material = HandScannerMesh2.materials[1];
+        if (HandScannerMesh2 != null && HandScannerMesh2.materials.Length > 1)
+            Scanner2Material = HandScannerMesh2.materials[1];
     }
-
-   
 
     private void Update()
     {
-        if (ScannerMaterial.color == Color.green && Scanner2Material.color != Color.green)
+        UpdateTimerLogic();
+        HandleTimerCountdown();
+        UpdateTimerDisplay();
+    }
+
+    private void UpdateTimerLogic()
+    {
+        bool scanner1Green = IsMaterialColor(ScannerMaterial, Color.green);
+        bool scanner2Green = IsMaterialColor(Scanner2Material, Color.green);
+
+        // Start timer if only one scanner is green
+        if ((scanner1Green && !scanner2Green) || (!scanner1Green && scanner2Green))
         {
             if (!TimerActivated)
             {
                 currentTime = WaitTime;
                 TimerActivated = true;
             }
-            TimerText.text = Seconds.ToString();
         }
-        else if (ScannerMaterial.color != Color.green && Scanner2Material.color == Color.green)
+        // Both green or both not green - clear timer text
+        else
         {
-            if (!TimerActivated)
-            {
-                currentTime = WaitTime;
-                TimerActivated = true;
-            }
-            TimerText.text = Seconds.ToString();
-        }
-        else if (ScannerMaterial.color == Color.green && Scanner2Material.color == Color.green)
-        {
-            
             TimerText.text = "";
         }
-        else if (ScannerMaterial.color != Color.green && Scanner2Material.color != Color.green)
-        {
+    }
 
-            TimerText.text = "";
-        }
-
-        if (Seconds <= 0)
+    private void HandleTimerCountdown()
+    {
+        if (TimerActivated)
         {
-            if (Scanner2Material.color != Color.green && ScannerMaterial.color != Color.green)
+            if (currentTime > 0)
             {
-                ScannerMaterial.color = Color.red;
-                Scanner2Material.color = Color.red;
+                currentTime -= Time.deltaTime;
+                TimerBG.SetActive(true);
             }
-            else if (Scanner2Material.color == Color.green && ScannerMaterial.color == Color.green)
+            else
             {
-                ScannerMaterial.color = Color.green;
-                Scanner2Material.color = Color.green;
-                FloorMover.SetBool("Move", true);
+                HandleTimerExpired();
             }
-            TimerBG.SetActive(false);
-            TimerActivated = false;
-
         }
-        else if (Seconds > 0)
+    }
+
+    private void HandleTimerExpired()
+    {
+        bool scanner1Green = IsMaterialColor(ScannerMaterial, Color.green);
+        bool scanner2Green = IsMaterialColor(Scanner2Material, Color.green);
+
+        // Scanner 1
+        if (scanner1Green)
         {
-            currentTime -= Time.deltaTime;
-            TimerBG.SetActive(true);
+            ScannerMaterial.EnableKeyword("_EMISSION");
+            ScannerMaterial.SetColor("_EmissionColor", Color.green * 2.0f);
+            ScannerMaterial.color = Color.green; // Also change base color
+        }
+        else
+        {
+            ScannerMaterial.EnableKeyword("_EMISSION"); // Enable for red too!
+            ScannerMaterial.SetColor("_EmissionColor", Color.red * 2.0f);
+            ScannerMaterial.color = Color.red; // Also change base color
         }
 
+        // Scanner 2
+        if (scanner2Green)
+        {
+            Scanner2Material.EnableKeyword("_EMISSION");
+            Scanner2Material.SetColor("_EmissionColor", Color.green * 2.0f);
+            Scanner2Material.color = Color.green; // Also change base color
+        }
+        else
+        {
+            Scanner2Material.EnableKeyword("_EMISSION"); // Enable for red too!
+            Scanner2Material.SetColor("_EmissionColor", Color.red * 2.0f);
+            Scanner2Material.color = Color.red; // Also change base color
+        }
+        // If timer expires and scanners aren't both green, reset to red
+        if (!scanner1Green || !scanner2Green)
+        {
+            SetScannerColor(ScannerMaterial, Color.red);
+            SetScannerColor(Scanner2Material, Color.red);
+        }
+
+        TimerBG.SetActive(false);
+        TimerActivated = false;
+    }
+
+    private void UpdateTimerDisplay()
+    {
         Seconds = Mathf.FloorToInt(currentTime);
+
+        // Only update text if timer is active and time remains
+        if (TimerActivated && currentTime > 0)
+        {
+            TimerText.text = Seconds.ToString();
+        }
+
+        // Check if both scanners are green to activate floor mover
+        if (IsMaterialColor(ScannerMaterial, Color.green) && IsMaterialColor(Scanner2Material, Color.green))
+        {
+            FloorMover.SetBool("Move", true);
+        }
+    }
+
+    // Helper method to safely check material color
+    private bool IsMaterialColor(Material material, Color color)
+    {
+        return material != null && material.color == color;
+    }
+
+    // Helper method to safely set material color
+    private void SetScannerColor(Material material, Color color)
+    {
+        if (material != null)
+        {
+            material.color = color;
+        }
     }
 }

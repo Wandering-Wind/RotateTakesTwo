@@ -384,10 +384,15 @@ public class PlayerController : MonoBehaviour
                 Material[] allMaterials = meshRenderer.materials;
 
                 // Access specific material by index
-                Material firstMaterial = meshRenderer.materials[0];
+                Material targetMaterial = meshRenderer.materials[1];
 
-                // Modify properties of specific materials
-                meshRenderer.materials[1].color = Color.green;
+                // Change both material color AND emission color to green
+                targetMaterial.color = Color.green;  // Base color
+                targetMaterial.EnableKeyword("_EMISSION"); // Enable emission
+                targetMaterial.SetColor("_EmissionColor", Color.green * 2.0f); // Emission color (brighter)
+
+                // Apply changes back to renderer
+                meshRenderer.materials = allMaterials;
             }
         }
     }
