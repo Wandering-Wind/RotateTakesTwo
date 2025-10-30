@@ -12,11 +12,9 @@ public class RotateManager : MonoBehaviour
     public List<bool> RotateRight;
     public List<bool> RotateLeft;
     [SerializeField]
-    private float rotateSpeed = 90f;
     public bool isRotating;
 
     public List<Transform> Players;
-    private bool CheckRotation;
 
     public List<GameObject> RotateRightUI;
     public List<GameObject> RotateLeftUI;
@@ -133,7 +131,6 @@ public class RotateManager : MonoBehaviour
     IEnumerator RotateWorld()
     {
         isRotating = true;
-        CheckRotation = false;
 
         // Set rotation pivot points to player positions
         for (int i = 0; i < Players.Count && i < Rotations.Count; i++)
@@ -190,7 +187,6 @@ public class RotateManager : MonoBehaviour
             Levels[i].parent = null;
         }
 
-        CheckRotation = true;
         isRotating = false;
     }
 
