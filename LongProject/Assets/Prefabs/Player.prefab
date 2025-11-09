@@ -126,7 +126,7 @@ MonoBehaviour:
   - {fileID: 1361203246241471950}
   speed: 5
   jumpForce: 10
-  JumpForceForBigPlayer: 4
+  JumpForceForBigPlayer: 6
   raycastDistance: 2
   groundLayer:
     serializedVersion: 2
@@ -156,6 +156,7 @@ MonoBehaviour:
   - {fileID: 7323849614193918121}
   - {fileID: 3598652067206904223}
   RayPoint: {fileID: 959138085386834964}
+  JumpCount: 0
 --- !u!114 &-1408217536212657258
 MonoBehaviour:
   m_ObjectHideFlags: 0

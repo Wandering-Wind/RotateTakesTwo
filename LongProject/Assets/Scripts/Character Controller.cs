@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -70,6 +71,8 @@ public class PlayerController : MonoBehaviour
     public Transform RayPoint;
 
     private PlayerUICominucations UIcontrol;
+    [SerializeField]
+    int JumpCount;
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -250,9 +253,31 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed && isGrounded)
         {
-            Jump();
+            if (JumpCount == 0)
+            {
+                Jump();
+                JumpCount ++;
+            }
+            else if (JumpCount > 0)
+            {
+                JumpCount = 0;
+                Jump();
+                JumpCount++;
+
+            }
+        }
+        else if (context.performed && !isGrounded)
+        {
+            if (JumpCount == 1)
+            {
+                StartCoroutine(SmashJump());
+                JumpCount = 0;
+
+            }
         }
     }
+
+    
 
     void Update()
     {
@@ -450,17 +475,8 @@ public class PlayerController : MonoBehaviour
     {
         // Use 3D raycast since we're using Rigidbody (3D)
         RaycastHit hit;
-        isGrounded = Physics.Raycast(transform.position, -transform.up, out hit, raycastDistance, groundLayer);
-
-        // Visual debug
-        if (isGrounded)
-        {
-            Debug.DrawRay(transform.position, Vector3.down * distance, Color.green);
-        }
-        else
-        {
-            Debug.DrawRay(transform.position, Vector3.down * raycastDistance, Color.red);
-        }
+        isGrounded = Physics.Raycast(transform.position, -transform.up, out hit, 1.5f, groundLayer);
+       
     }
 
     void Jump()
@@ -469,11 +485,28 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(transform.up * JumpForceForBigPlayer, ForceMode.Impulse);
         }
-       else if (isSmallPlayer)
+
+        else if (isSmallPlayer)
         {
             rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-
         }
+
+    }
+
+    void Smash()
+    {
+        if (isBigPlayer)
+        {
+            rb.AddForce(-transform.up * JumpForceForBigPlayer, ForceMode.Impulse);
+        }
+
+    }
+
+    IEnumerator SmashJump()
+    {
+        rb.AddForce(transform.up * 3, ForceMode.Impulse);
+        yield return new WaitForSeconds(0.2f);
+        Smash();
 
     }
 
