@@ -96,7 +96,6 @@ public class PlayerUICominucations : MonoBehaviour
             }
             else
             {
-                Debug.Log("None");
                 TextBox2.SetActive(false);
 
             }
@@ -147,7 +146,6 @@ public class PlayerUICominucations : MonoBehaviour
             }
             else
             {
-                Debug.Log("None");
                 TextBox.SetActive(false);
 
             }

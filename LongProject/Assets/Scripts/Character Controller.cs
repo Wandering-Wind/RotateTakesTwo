@@ -74,6 +74,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     int JumpCount;
     public bool canSmash;
+    private Vector3 CheckPoint;
 
     void Awake()
     {
@@ -528,9 +529,11 @@ public class PlayerController : MonoBehaviour
         else if (other.CompareTag("KillBox"))
         {
             string Currentscene = SceneManager.GetActiveScene().name;
-            SceneManager.LoadScene(Currentscene);
-            
-            
+            transform.position = CheckPoint;
+        }
+        else if (other.CompareTag("CheckPoint"))
+        {
+            CheckPoint = transform.position;
         }
     }
 
