@@ -23789,8 +23789,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 20.919827, y: 3.0848289, z: 1.9999996}
-  m_Center: {x: -0.00030284797, y: 0.54244244, z: 1.4613627e-16}
+  m_Size: {x: 28.659863, y: 3.0848289, z: 1.9999996}
+  m_Center: {x: 3.8697147, y: 0.13, z: 0}
 --- !u!1 &1829437476 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2785634713af53a458e717bb0028769c, type: 3}
@@ -24223,7 +24223,7 @@ PrefabInstance:
     - target: {fileID: 1738776581880846596, guid: 7bc44b72be67c0841a020fb147bf3387, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 7474b9a70f3291b43976f09e2295803a, type: 2}
+      objectReference: {fileID: 2100000, guid: 2ccff17945553b74f8a77a76b44e6e00, type: 2}
     - target: {fileID: 1746654310787607633, guid: 7bc44b72be67c0841a020fb147bf3387, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -25402,7 +25402,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 3579bd09d46db6a42a75619dcd352ebe, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d3639d512335ed443b0f9f2a5c8b34cc, type: 2}
+      objectReference: {fileID: 2100000, guid: ef4b8bedc343b3f4fbbc0b96304705e2, type: 2}
     - target: {fileID: 919132149155446097, guid: 3579bd09d46db6a42a75619dcd352ebe, type: 3}
       propertyPath: m_Name
       value: WallFrame02 (5)

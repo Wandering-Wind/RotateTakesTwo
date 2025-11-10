@@ -73,6 +73,8 @@ public class PlayerController : MonoBehaviour
     private PlayerUICominucations UIcontrol;
     [SerializeField]
     int JumpCount;
+    public bool canSmash;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -498,15 +500,21 @@ public class PlayerController : MonoBehaviour
         if (isBigPlayer)
         {
             rb.AddForce(-transform.up * JumpForceForBigPlayer, ForceMode.Impulse);
+            rb.mass = 5;
         }
 
     }
 
     IEnumerator SmashJump()
     {
+        canSmash = true;
         rb.AddForce(transform.up * 3, ForceMode.Impulse);
         yield return new WaitForSeconds(0.2f);
         Smash();
+        yield return new WaitForSeconds(0.5f);
+        canSmash = false;
+        rb.mass = 1;
+
 
     }
 
