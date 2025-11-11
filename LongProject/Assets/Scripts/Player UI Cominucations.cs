@@ -25,6 +25,7 @@ public class PlayerUICominucations : MonoBehaviour
     [SerializeField]
     private int RayDistance;
 
+
     private void Start()
     {
         playerInputManager = GetComponent<PlayerInput>();

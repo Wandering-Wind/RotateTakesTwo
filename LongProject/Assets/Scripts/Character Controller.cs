@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -75,6 +76,11 @@ public class PlayerController : MonoBehaviour
     int JumpCount;
     public bool canSmash;
     private Vector3 CheckPoint;
+    [SerializeField]
+    private Transform holdingPosition;
+    [SerializeField]
+    private List<string> KeyNames;
+    private List<bool> KeysCollected;
 
     void Awake()
     {
@@ -187,44 +193,34 @@ public class PlayerController : MonoBehaviour
             }
             transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
 
-            Ray ray = new Ray(transform.position, transform.forward);
+            Ray ray = new Ray(transform.position + Vector3.up * 0.5f, transform.forward);
             RaycastHit hit;
 
-            if (context.started)
+            if (context.started && !isPushing)
             {
-                isPushing = true;
-                if (Physics.Raycast(ray, out hit, 2, InteractLayer))
+                if (Physics.Raycast(ray, out hit, 2f, InteractLayer) && hit.collider.CompareTag("HeavyBlock"))
                 {
-                    if (hit.collider.CompareTag("HeavyBlock"))
-                    {
+                    isPushing = true;
+                    HeldObject = hit.collider.gameObject;
 
-                        HeldObject = hit.collider.gameObject;
-                        HeldObject.transform.parent = transform;
-                        HeldObject.transform.position = new Vector3(transform.position.x, HeldObject.transform.position.y, HeldObject.transform.position.z);
-                        BoxCollider Bc = hit.collider.gameObject.GetComponent<BoxCollider>();
-                        Bc.isTrigger = true;
-                    }
+                    HeldObject.transform.SetParent(holdingPosition);
+                    HeldObject.transform.position = holdingPosition.position;
+
+                    var box = HeldObject.GetComponent<BoxCollider>();
+                    if (box != null) box.isTrigger = true;
                 }
             }
-            else if (context.canceled)
+            else if (context.canceled && isPushing)
             {
-                isPushing = false;
-                if (Physics.Raycast(ray, out hit, 2, InteractLayer))
+                if (HeldObject != null)
                 {
-                    if (hit.collider.CompareTag("HeavyBlock"))
-                    {
-                        HeldObject = hit.collider.gameObject;
-                        HeldObject.AddComponent<Rigidbody>();
-                        Rigidbody rb = HeldObject.GetComponent<Rigidbody>();
-                        Destroy(rb, 0.2f);
+                    var rb = HeldObject.AddComponent<Rigidbody>();
+                    HeldObject.transform.SetParent(null);
 
-                        HeldObject.transform.parent = null;
-                        HeldObject = null;
-                        BoxCollider Bc = hit.collider.gameObject.GetComponent<BoxCollider>();
-                        Bc.isTrigger = false;
-
-                    }
+                    StartCoroutine(ReleaseBlock(rb));
                 }
+
+                isPushing = false;
             }
         }
         else if (isSmallPlayer)
@@ -249,6 +245,18 @@ public class PlayerController : MonoBehaviour
                     Player2Trails[i].time = 0;
                 }
             }
+        }
+    }
+
+    private IEnumerator ReleaseBlock(Rigidbody rb)
+    {
+        yield return new WaitForSeconds(0.4f);
+        if (rb != null)
+        {
+            var box = rb.GetComponent<BoxCollider>();
+            if (box != null) box.isTrigger = false;
+
+            Destroy(rb);
         }
     }
 
@@ -280,14 +288,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    
+
 
     void Update()
     {
         CheckGrounded();
 
         float currentAngle = transform.eulerAngles.z;
-        
+
         if (RotateManagerScript.isRotating)
         {
             rb.useGravity = false;
@@ -345,7 +353,7 @@ public class PlayerController : MonoBehaviour
             else if (currentAngle == -90)
             {
                 //Left
-                Physics.gravity = new Vector3(-9.81f,0, 0);
+                Physics.gravity = new Vector3(-9.81f, 0, 0);
 
             }
             else if (currentAngle == 90)
@@ -359,9 +367,17 @@ public class PlayerController : MonoBehaviour
         {
             rb.useGravity = false;
         }
+
+
+        if (canSmash)
+        {
+            
+                rb.AddForce(-transform.up * JumpForceForBigPlayer * 1.5f);
+                
+        }
     }
 
-   
+
 
     void FixedUpdate()
     {
@@ -509,7 +525,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator SmashJump()
     {
         canSmash = true;
-        rb.AddForce(transform.up * 3, ForceMode.Impulse);
+        rb.AddForce(transform.up * 5, ForceMode.Impulse);
         yield return new WaitForSeconds(0.2f);
         Smash();
         yield return new WaitForSeconds(0.5f);
@@ -534,6 +550,46 @@ public class PlayerController : MonoBehaviour
         else if (other.CompareTag("CheckPoint"))
         {
             CheckPoint = transform.position;
+        }
+        else if(KeyNames.Contains(other.gameObject.name))
+        {
+           for(int i = 0; i < UIcontrolsScript.KeysCollectedUI.Count; i++)
+            {
+                UIcontrolsScript.KeysCollectedUI[i].SetActive(false);
+                KeysCollected[i] = false;
+            }
+           
+            
+            if (other.gameObject.name == KeyNames[0])
+            {
+                UIcontrolsScript.KeysCollectedUI[0].SetActive(true);
+                KeysCollected[0] = true;
+            }
+            else if (other.gameObject.name == KeyNames[1])
+            {
+                UIcontrolsScript.KeysCollectedUI[1].SetActive(true);
+                KeysCollected[1] = true;
+            }
+            else if (other.gameObject.name == KeyNames[2])
+            {
+                UIcontrolsScript.KeysCollectedUI[2].SetActive(true);
+                KeysCollected[2] = true;
+            }
+            else if (other.gameObject.name == KeyNames[3])
+            {
+                UIcontrolsScript.KeysCollectedUI[3].SetActive(true);
+                KeysCollected[3] = true;
+            }
+            else if (other.gameObject.name == KeyNames[4])
+            {
+                UIcontrolsScript.KeysCollectedUI[4].SetActive(true);
+                KeysCollected[4] = true;
+            }
+            else if (other.gameObject.name == KeyNames[5])
+            {
+                UIcontrolsScript.KeysCollectedUI[5].SetActive(true);
+                KeysCollected[5] = true;
+            }
         }
     }
 

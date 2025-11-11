@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class UIControl : MonoBehaviour
 {
     public GameObject PausePanel;
+    public List<GameObject> KeysCollectedUI;
 
     public void PauseandPlay()
     {

@@ -7,12 +7,16 @@ public class PreasurePlate : MonoBehaviour
     [SerializeField]
     private bool isButton, isPresurePlate;
     private Animator buttonPress;
+    private ButtonKeySpawner buttonKeySpawnerScript;
+    BoxCollider bc;
 
     private void Start()
     {
         if (isButton)
         {
             buttonPress = GetComponent<Animator>();
+            buttonKeySpawnerScript = GetComponent<ButtonKeySpawner>();
+            bc = GetComponent<BoxCollider>();
         }
     }
 
@@ -26,6 +30,7 @@ public class PreasurePlate : MonoBehaviour
             {
                 if (isButton)
                 {
+                    buttonKeySpawnerScript.SpawnKey();
                     StartCoroutine(buttonPressAnimation());
                 }
             }
@@ -34,8 +39,11 @@ public class PreasurePlate : MonoBehaviour
 
     IEnumerator buttonPressAnimation()
     {
+        bc.isTrigger = true;
         buttonPress.SetBool("Press", true);
         yield return new WaitForSeconds(1);
         buttonPress.SetBool("Press", false);
+        bc.isTrigger = false;
+
     }
 }
