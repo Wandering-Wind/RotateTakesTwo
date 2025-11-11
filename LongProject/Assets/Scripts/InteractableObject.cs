@@ -11,6 +11,7 @@ public class InteractableObject : MonoBehaviour
     [SerializeField] private float highlightDistance = 5f;
 
     private Outline outline; // your 3D outline script
+    
 
     private void Start()
     {
@@ -23,6 +24,8 @@ public class InteractableObject : MonoBehaviour
         if (outline == null)
             outline = gameObject.AddComponent<Outline>();
         outline.enabled = false;
+
+        
     }
 
     private void Update()
