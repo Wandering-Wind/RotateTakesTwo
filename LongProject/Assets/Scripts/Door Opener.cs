@@ -9,6 +9,10 @@ public class DoorOpener : MonoBehaviour
     private string Animation;
     [SerializeField]
     private Animator DoorAnimator;
+    [SerializeField]
+    private bool isDoorOpenerButton;
+    [SerializeField]
+    private Animator LeftDoor, RightDoor;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -18,6 +22,12 @@ public class DoorOpener : MonoBehaviour
             collision.gameObject.transform.position = transform.position;
             collision.gameObject.transform.parent = transform;
         }
+    }
+
+    public void OpenDoors()
+    {
+        LeftDoor.SetBool("Open", true);
+        RightDoor.SetBool("Open", true);
     }
 
 }
