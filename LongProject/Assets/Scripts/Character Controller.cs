@@ -253,7 +253,7 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator ReleaseBlock(Rigidbody rb)
     {
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.45f);
         if (rb != null)
         {
             var box = rb.GetComponent<BoxCollider>();
@@ -385,10 +385,9 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
       
-        if (!isPushing)
-        {
+        
             HandleRotation();
-        }
+        
 
         
             // Apply velocity for movement
@@ -414,7 +413,7 @@ public class PlayerController : MonoBehaviour
         Ray ray = new Ray(RayPoint.position, RayPoint.forward);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray,out hit, 3, InteractLayer))
+        if (Physics.Raycast(ray, out hit, 3, InteractLayer))
         {
             if (hit.collider.CompareTag("Door"))
             {
@@ -508,6 +507,11 @@ public class PlayerController : MonoBehaviour
                         KeysCollected[i] = false;
                     }
                 }
+            }
+            else if (hit.collider.CompareTag("DoorButton"))
+            {
+                DoorOpener doors = hit.collider.GetComponent<DoorOpener>();
+                doors.OpenDoors();
             }
         }
     }

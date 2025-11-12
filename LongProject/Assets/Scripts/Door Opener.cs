@@ -24,4 +24,10 @@ public class DoorOpener : MonoBehaviour
         }
     }
 
+    public void OpenDoors()
+    {
+        LeftDoor.SetBool("Open", true);
+        RightDoor.SetBool("Open", true);
+    }
+
 }

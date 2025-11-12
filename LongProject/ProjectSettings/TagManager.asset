@@ -29,6 +29,7 @@ TagManager:
   - HandScanner
   - CheckPoint
   - KeyBox
+  - DoorButton
   layers:
   - Default
   - TransparentFX
