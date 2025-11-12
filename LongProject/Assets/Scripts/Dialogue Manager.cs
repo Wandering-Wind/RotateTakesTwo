@@ -22,32 +22,35 @@ public class DialogueManager : MonoBehaviour
         textComponent.text = string.Empty;
         startDialogue();
         audioSources = GetComponent<AudioSource>();
+        //dialoguePanel.SetActive(false);
     }
 
     private void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        
+
+        if (playerInputManager.playerCount == 2)
         {
-            if (textComponent.text == lines[Index])
+            
+            if(Input.GetMouseButtonDown(0))
             {
-                NextLine();
-            }
-            else
-            {
-                StopAllCoroutines();
-                textComponent.text = lines[Index];
+                if (textComponent.text == lines[Index])
+                {
+                    NextLine();
+                }
+                else
+                {
+                    StopAllCoroutines();
+                    textComponent.text = lines[Index];
+                }
             }
         }
-
-        //if (playerInputManager.playerCount == 2)
-        //{
-
-        //}
     }
 
     void startDialogue()
     {
         Index = 0;
+        dialoguePanel.SetActive(true);
         StartCoroutine(TypeLine());
     }
 
