@@ -11,6 +11,8 @@ public class EndGameManager : MonoBehaviour
     public bool canOpenDoors;
     public GameObject WinScreen;
     public List<bool> DoorsOpened;
+    [SerializeField]
+    private string Scene;
     private void Update()
     {
         if (KeysCollected.All(b => b))
@@ -20,7 +22,7 @@ public class EndGameManager : MonoBehaviour
 
         if (DoorsOpened.All(b => b))
         {
-            SceneManager.LoadScene("Level 2");
+            SceneManager.LoadScene(Scene);
         }
        
     }

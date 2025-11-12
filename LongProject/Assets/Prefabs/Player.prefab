@@ -343,6 +343,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 49d73418-68bb-480e-a4ee-13a3056c2e68
     m_ActionName: Player/Pause[/DualShock4GamepadHID/start,/DualShock4GamepadHID1/start]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 86643afd-23f3-4825-8ce1-c75b737a5a83
+    m_ActionName: Player/Continue[/DualShock4GamepadHID1/buttonWest,/DualShock4GamepadHID/buttonWest]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -406,7 +410,7 @@ Transform:
   m_GameObject: {fileID: 4283189564686214601}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.4, y: 1.37, z: 2.54}
+  m_LocalPosition: {x: 1.4, y: -0.02, z: 2.94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

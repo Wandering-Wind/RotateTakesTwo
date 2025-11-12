@@ -15,12 +15,15 @@ public class DoubleDoorOpener : MonoBehaviour
 
     private void Start()
     {
-        doubleDooropenerScript = OtherSide.GetComponent<DoubleDoorOpener>();
+        if (OtherSide != null)
+        {
+            doubleDooropenerScript = OtherSide.GetComponent<DoubleDoorOpener>();
+        }
         buttonAnimator = GetComponent<Animator>();
     }
     private void Update()
     {
-        if (RightSide &&  LeftSide)
+        if (RightSide && LeftSide)
         {
             OpenDoors();
         }
@@ -37,21 +40,24 @@ public class DoubleDoorOpener : MonoBehaviour
         {
             if (collision.collider.CompareTag("Player2"))
             {
-                if (doubleDooropenerScript != null)
+                PlayerController playerControllerscript = collision.gameObject.GetComponent<PlayerController>();
+                if (playerControllerscript != null && playerControllerscript.canSmash)
                 {
-                    doubleDooropenerScript.RightSide = true;
+                    if (doubleDooropenerScript != null)
+                    {
+                        doubleDooropenerScript.RightSide = true;
+                    }
+                    RightSide = true;
+                    buttonAnimator.SetBool("Press", true);
                 }
-                RightSide = true;
-                buttonAnimator.SetBool("Press", true);
-
             }
         }
         else if (isLeftSide)
         {
             if (collision.collider.CompareTag("HeavyBlock"))
             {
-                    LeftSide = true;
-                    doubleDooropenerScript.LeftSide = true;
+                LeftSide = true;
+                doubleDooropenerScript.LeftSide = true;
             }
         }
     }

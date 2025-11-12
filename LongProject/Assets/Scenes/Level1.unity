@@ -25994,6 +25994,7 @@ MonoBehaviour:
   canOpenDoors: 0
   WinScreen: {fileID: 1277239731}
   DoorsOpened: 000001
+  Scene: Level 2
 --- !u!4 &2059529168
 Transform:
   m_ObjectHideFlags: 0
