@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class DialogueManager : MonoBehaviour
     public AudioClip[] audioClips;
     public float textSpeed;
     public GameObject dialoguePanel;
+    public PlayerInputManager playerInputManager;
 
     private int Index;
 
@@ -36,6 +38,11 @@ public class DialogueManager : MonoBehaviour
                 textComponent.text = lines[Index];
             }
         }
+
+        //if (playerInputManager.playerCount == 2)
+        //{
+
+        //}
     }
 
     void startDialogue()
