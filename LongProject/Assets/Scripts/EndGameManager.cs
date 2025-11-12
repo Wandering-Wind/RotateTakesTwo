@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EndGameManager : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class EndGameManager : MonoBehaviour
 
         if (DoorsOpened.All(b => b))
         {
-            WinScreen.SetActive(true);
+            SceneManager.LoadScene("Level 2");
         }
        
     }
