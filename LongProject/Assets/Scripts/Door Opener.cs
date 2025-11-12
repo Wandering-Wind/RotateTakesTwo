@@ -9,6 +9,10 @@ public class DoorOpener : MonoBehaviour
     private string Animation;
     [SerializeField]
     private Animator DoorAnimator;
+    [SerializeField]
+    private bool isDoorOpenerButton;
+    [SerializeField]
+    private Animator LeftDoor, RightDoor;
 
     private void OnCollisionEnter(Collision collision)
     {

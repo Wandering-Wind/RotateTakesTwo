@@ -28,6 +28,7 @@ TagManager:
   - Key2
   - HandScanner
   - CheckPoint
+  - KeyBox
   layers:
   - Default
   - TransparentFX

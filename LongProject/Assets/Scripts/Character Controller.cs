@@ -80,7 +80,10 @@ public class PlayerController : MonoBehaviour
     private Transform holdingPosition;
     [SerializeField]
     private List<string> KeyNames;
+    [SerializeField]
     private List<bool> KeysCollected;
+    [SerializeField]
+    private List<GameObject> KeyBoxOrbs;
 
     void Awake()
     {
@@ -438,6 +441,74 @@ public class PlayerController : MonoBehaviour
                 // Apply changes back to renderer
                 meshRenderer.materials = allMaterials;
             }
+            else if (hit.collider.CompareTag("KeyBox"))
+            {
+                if (KeysCollected[0])
+                {
+                    GameObject Orb = Instantiate(KeyBoxOrbs[0], hit.collider.gameObject.transform.position, Quaternion.identity);
+                    Orb.transform.parent = hit.collider.transform;
+                    for (int i = 0; i < UIcontrolsScript.KeysCollectedUI.Count; i++)
+                    {
+                        UIcontrolsScript.KeysCollectedUI[i].SetActive(false);
+                        KeysCollected[i] = false;
+                    }
+                }
+                else if (KeysCollected[1])
+                {
+                    GameObject Orb = Instantiate(KeyBoxOrbs[1], hit.collider.gameObject.transform.position, Quaternion.identity);
+                    Orb.transform.parent = hit.collider.transform;
+                    Orb.transform.rotation = hit.collider.transform.rotation;
+                    for (int i = 0; i < UIcontrolsScript.KeysCollectedUI.Count; i++)
+                    {
+                        UIcontrolsScript.KeysCollectedUI[i].SetActive(false);
+                        KeysCollected[i] = false;
+                    }
+                }
+                else if (KeysCollected[2])
+                {
+                    GameObject Orb = Instantiate(KeyBoxOrbs[2], hit.collider.gameObject.transform.position, Quaternion.identity);
+                    Orb.transform.parent = hit.collider.transform;
+                    Orb.transform.rotation = hit.collider.transform.rotation;
+                    for (int i = 0; i < UIcontrolsScript.KeysCollectedUI.Count; i++)
+                    {
+                        UIcontrolsScript.KeysCollectedUI[i].SetActive(false);
+                        KeysCollected[i] = false;
+                    }
+                }
+                else if (KeysCollected[3])
+                {
+                    GameObject Orb = Instantiate(KeyBoxOrbs[3], hit.collider.gameObject.transform.position, Quaternion.identity);
+                    Orb.transform.parent = hit.collider.transform;
+                    Orb.transform.rotation = hit.collider.transform.rotation;
+                    for (int i = 0; i < UIcontrolsScript.KeysCollectedUI.Count; i++)
+                    {
+                        UIcontrolsScript.KeysCollectedUI[i].SetActive(false);
+                        KeysCollected[i] = false;
+                    }
+                }
+                else if (KeysCollected[4])
+                {
+                    GameObject Orb = Instantiate(KeyBoxOrbs[4], hit.collider.gameObject.transform.position, Quaternion.identity);
+                    Orb.transform.parent = hit.collider.transform;
+                    Orb.transform.rotation = hit.collider.transform.rotation;
+                    for (int i = 0; i < UIcontrolsScript.KeysCollectedUI.Count; i++)
+                    {
+                        UIcontrolsScript.KeysCollectedUI[i].SetActive(false);
+                        KeysCollected[i] = false;
+                    }
+                }
+                else if (KeysCollected[5])
+                {
+                    GameObject Orb = Instantiate(KeyBoxOrbs[5], hit.collider.gameObject.transform.position, Quaternion.identity);
+                    Orb.transform.parent = hit.collider.transform;
+                    Orb.transform.rotation = hit.collider.transform.rotation;
+                    for (int i = 0; i < UIcontrolsScript.KeysCollectedUI.Count; i++)
+                    {
+                        UIcontrolsScript.KeysCollectedUI[i].SetActive(false);
+                        KeysCollected[i] = false;
+                    }
+                }
+            }
         }
     }
 
@@ -564,31 +635,37 @@ public class PlayerController : MonoBehaviour
             {
                 UIcontrolsScript.KeysCollectedUI[0].SetActive(true);
                 KeysCollected[0] = true;
+                Destroy(other.gameObject);
             }
             else if (other.gameObject.name == KeyNames[1])
             {
                 UIcontrolsScript.KeysCollectedUI[1].SetActive(true);
                 KeysCollected[1] = true;
+                Destroy(other.gameObject);
             }
             else if (other.gameObject.name == KeyNames[2])
             {
                 UIcontrolsScript.KeysCollectedUI[2].SetActive(true);
                 KeysCollected[2] = true;
+                Destroy(other.gameObject);
             }
             else if (other.gameObject.name == KeyNames[3])
             {
                 UIcontrolsScript.KeysCollectedUI[3].SetActive(true);
                 KeysCollected[3] = true;
+                Destroy(other.gameObject);
             }
             else if (other.gameObject.name == KeyNames[4])
             {
                 UIcontrolsScript.KeysCollectedUI[4].SetActive(true);
                 KeysCollected[4] = true;
+                Destroy(other.gameObject);
             }
             else if (other.gameObject.name == KeyNames[5])
             {
                 UIcontrolsScript.KeysCollectedUI[5].SetActive(true);
                 KeysCollected[5] = true;
+                Destroy(other.gameObject);
             }
         }
     }

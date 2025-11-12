@@ -166,13 +166,14 @@ MonoBehaviour:
   - RedKey(Clone)
   - YellowKey(Clone)
   - PurpleKey
-  KeysCollectedUI:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  KeysCollected: 000000000000
+  KeyBoxOrbs:
+  - {fileID: 1579998295226406855, guid: 4bae7c76428186e4288fe590a2e38543, type: 3}
+  - {fileID: 1415474378660795342, guid: f8d8d1a3aed28b4488694e14e975e45c, type: 3}
+  - {fileID: 2531054384425779048, guid: f1b0b645c1ccef34dab7c3f7866c3154, type: 3}
+  - {fileID: 3318451356921026760, guid: d7d0b0819454c8446b4a8762e0d143ad, type: 3}
+  - {fileID: 7215960779385413297, guid: 3bedad11d5de4204499aae19e7f56454, type: 3}
+  - {fileID: 897852132052548244, guid: da439fcbdfdf8af4095cf4d14dc0ecd7, type: 3}
 --- !u!114 &-1408217536212657258
 MonoBehaviour:
   m_ObjectHideFlags: 0
